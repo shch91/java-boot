@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 
 @RestController
@@ -19,6 +20,8 @@ public class HelloController {
 
     private  final Logger logger=LoggerFactory.getLogger(getClass());
 
+
+    private ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
     @Autowired
     private ActorMapper actorMapper;
 
@@ -55,6 +58,8 @@ public class HelloController {
     public Object error() {
         return 1 / 0;
     }
+
+
 
 
 }
