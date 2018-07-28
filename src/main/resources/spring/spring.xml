@@ -26,8 +26,8 @@
      <!--配置文件-->
     <import resource="./spring-redis.xml" />
     <import resource="./spring-druid.xml" />
-    <import resource="spring-mybatis.xml"/>
+    <import resource="./spring-mybatis.xml"/>
     <import resource="./spring-aop.xml"/>
-    <import resource="spring-ehcache.xml"/>
+    <import resource="./spring-ehcache.xml"/>
 
 </beans>
