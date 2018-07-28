@@ -1,5 +1,6 @@
 package com.ldy.shch91.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ldy.shch91.daoentity.Actor;
 import com.ldy.shch91.mapper.ActorMapper;
 import com.ldy.shch91.util.readResource.ReadResource;
@@ -47,9 +48,12 @@ public class HelloController {
     }
 
     @RequestMapping("/first")
-    public Object first() {
+    public String first() {
 
-     readResource.getResourceByClassOrClassLoader();
+     //readResource.getResourceByClassOrClassLoader();
+        Actor   actor=actorMapper.select(32);
+        logger.info(JSON.toJSONString(actor));
+        redisTemplate.opsForValue().set("userToJson", JSON.toJSONString(actor));
 
         return "first controller";
     }
