@@ -3,7 +3,7 @@ package com.ldy.shch91.controller;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import com.ldy.shch91.daoentity.Actor;
-import com.ldy.shch91.mapper.ActorMapper;
+import com.ldy.shch91.mapper.sakila.ActorMapper;
 import com.ldy.shch91.util.readResource.ReadResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +14,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Vector;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -24,8 +26,10 @@ public class HelloController {
 
     private  final Logger logger=LoggerFactory.getLogger(getClass());
 
-
     private ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
+
+    private static final LocalDate beginDate=LocalDate.of(2018,1,1);
+
     @Autowired
     private ActorMapper actorMapper;
 
@@ -71,7 +75,12 @@ public class HelloController {
         return 1 / 0;
     }
 
+    @RequestMapping("/kk")
+    public void test() {
 
+
+        return ;
+    }
 
 
 }

@@ -1,4 +1,4 @@
-package com.ldy.shch91.mapper;
+package com.ldy.shch91.mapper.sakila;
 
 import com.ldy.shch91.daoentity.Actor;
 import org.apache.ibatis.annotations.Mapper;
@@ -9,4 +9,6 @@ public interface ActorMapper {
     Actor select(@Param("actorId") int actorId);
 
    void update(Actor actor);
+
+   void add(Actor actor);
 }
