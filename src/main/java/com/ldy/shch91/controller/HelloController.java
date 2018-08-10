@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import com.ldy.shch91.daoentity.Actor;
 import com.ldy.shch91.mapper.sakila.ActorMapper;
+import com.ldy.shch91.task.AsyncTask;
 import com.ldy.shch91.util.readResource.ReadResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @RestController
 public class HelloController {
 
-    private  final Logger logger=LoggerFactory.getLogger(getClass());
+    private   final Logger logger=LoggerFactory.getLogger(getClass());
 
     private ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
 
@@ -42,6 +43,11 @@ public class HelloController {
     @Autowired
     ReadResource readResource;
 
+    @Autowired
+    private AsyncTask async;
+
+
+
     @RequestMapping("/hello/{id}")
     public Actor index(@PathVariable Integer id) {
         Actor   actor=actorMapper.select(id);
@@ -51,6 +57,8 @@ public class HelloController {
          map.put("dfa","fdsfdafdsa");
 
          valOps.multiSet(map);
+
+        async.dotask();
 
          logger.info("获取演员id",actor.toString());
          return actor;
