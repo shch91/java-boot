@@ -8,9 +8,11 @@ import java.util.List;
 @Mapper
 public interface SalaryMapper {
 
-    public  int  add(Salary salary);
+      int  add(Salary salary);
 
-    public Salary getByEmpNo(String empNo);
+     Salary getByEmpNo(String empNo);
 
-    public List<String> allEmpNo();
+     List<String> allEmpNo();
+
+     List<Salary> getAll();
 }

@@ -22,8 +22,13 @@
     </select>
 
     <select id="allEmpNo" >
-      select  distinct(emp_no)
+        select  distinct(emp_no)
         from salaries
     </select>
 
+    <select id="getAll" resultType="Salary">
+        select to_date ,salary ,from_date,emp_no
+        from  salaries
+          limit 1,10000
+    </select>
 </mapper>
