@@ -5,6 +5,7 @@ import java.util.Date;
 
 @Data
 public class Salary {
+
     private  int empNo;
     private  int salary;
     private Date fromDate;

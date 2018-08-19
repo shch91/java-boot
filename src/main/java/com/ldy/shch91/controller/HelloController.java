@@ -2,7 +2,11 @@ package com.ldy.shch91.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import com.ldy.shch91.daoentity.Actor;
+import com.ldy.shch91.daoentity.Salary;
+import com.ldy.shch91.mapper.employees.SalaryMapper;
+import com.ldy.shch91.mapper.employees.TmpMapper;
 import com.ldy.shch91.mapper.sakila.ActorMapper;
 import com.ldy.shch91.task.AsyncTask;
 import com.ldy.shch91.util.readResource.ReadResource;
@@ -18,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -33,6 +38,12 @@ public class HelloController {
 
     @Autowired
     private ActorMapper actorMapper;
+
+    @Autowired
+    private SalaryMapper salaryMapper;
+
+    @Autowired
+    private TmpMapper tmpMapper;
 
     @Autowired
     RedisTemplate<String,String> redisTemplate;
@@ -85,10 +96,31 @@ public class HelloController {
 
     @RequestMapping("/kk")
     public void test() {
+        List<Salary> res=  salaryMapper.getAll();
+        tmpMapper.add(res.get(0));
+        List<List<Salary>> part=Lists.partition(res,20000);
 
-
+        for(List<Salary> item:part){
+            threadPoolTaskExecutor.execute(new CacheTask(item));
+        }
         return ;
     }
 
+    private  class CacheTask implements Runnable {
+
+
+        public CacheTask(List<Salary> list){
+            salaryList=list;
+        }
+      List<Salary> salaryList;
+        @Override
+        public void run() {
+              batchAdd(salaryList);
+        }
+    }
+
+    private void batchAdd(List<Salary>list){
+        tmpMapper.addBatch(list);
+    }
 
 }
