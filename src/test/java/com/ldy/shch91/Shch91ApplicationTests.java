@@ -89,8 +89,8 @@ public class Shch91ApplicationTests {
         Person person1 = new Person(1,"fastjson1",1);
         Person person2 = new Person(2,"fastjson2",2);
 
-         redisTemplate.opsForHash().put("person",person1.getId(),person1);
-        redisTemplate.opsForHash().put("person",person2.getId(),person2);
+         redisTemplate.opsForHash().put("person",person1.getId().toString(),person1);
+        redisTemplate.opsForHash().put("person",person2.getId().toString(),person2);
 
          Map<Integer,Person> map= redisTemplate.opsForHash().entries("person");
          for(Map.Entry<Integer,Person> entry:map.entrySet()){
