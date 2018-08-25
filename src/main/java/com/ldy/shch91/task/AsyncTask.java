@@ -17,7 +17,7 @@ public class AsyncTask {
             e.printStackTrace();
         }
         System.out.println("执行异步任务结束");
-        return new AsyncResult<>(true);
+        return new AsyncResult<Boolean>(true);
     }
  
 }
