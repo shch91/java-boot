@@ -14,7 +14,7 @@
         http://activemq.apache.org/schema/core/activemq-core-5.14.1.xsd">
 
 
-    <description>spring-activeMQ</description>
+    <description>spring-ActiveMQ</description>
     <!-- 获取ActiveMQ提供的ConnectionFactory -->
     <amq:connectionFactory id="amqConnectionFactory" brokerURL="tcp://127.0.0.1:61616" userName="admin" password="admin"></amq:connectionFactory>
 
@@ -39,6 +39,7 @@
         <!-- pub/sub模型（发布/订阅） -->
         <property name="pubSubDomain" value="true" />
     </bean>
+
 
 </beans>
 
