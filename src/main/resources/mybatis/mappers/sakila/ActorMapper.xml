@@ -32,11 +32,16 @@
     </insert>
 
 
-    <insert id="insertOrUpdate"  parameterType="Actor">
+
+    <!--
+       first_name=#{firstName},last_name=#{lastName}, last_update=current_timestamp()
+    -->
+    <insert id="insertOrUpdate" parameterType="Actor">
        insert into test (actor_id, first_name,last_name,last_update) values
         (#{actorId}, #{firstName}, #{lastName}, current_timestamp())
          ON DUPLICATE KEY UPDATE
-         (#{firstName}, #{lastName}, current_timestamp())
-    </insert>
+          first_name= values(first_name), last_name=values(last_name), last_update=current_timestamp()
+
+   </insert>
 
 </mapper>

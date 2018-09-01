@@ -61,9 +61,16 @@ public class HelloController {
     @RequestMapping("/hello/id")
     public int add(){
         Actor   actor=actorMapper.select(23);
+
+
+//        System.out.println(    JSON.toJSONString(actor));
+//
+//        actor.setFirstName("aaafdgfsgsaa");
+//        actor.setLastName("treww");
+
+        System.out.println(     JSON.toJSONString(actor));
         actorMapper.insertOrUpdate(actor);
 
-        System.out.println("update");
         return 0;
     }
 
