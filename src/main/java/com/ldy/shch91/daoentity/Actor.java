@@ -8,12 +8,12 @@ import java.util.Date;
 @Data
 public class Actor {
 
-    private  int  actorId;
+    public  int  actorId;
 
-    private String firstName;
+    public String firstName;
 
-    private  String lastName;
+    public  String lastName;
 
-    private Date lastUpdate;
+    public  Date lastUpdate;
 
 }

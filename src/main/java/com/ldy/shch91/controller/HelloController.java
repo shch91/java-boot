@@ -58,6 +58,15 @@ public class HelloController {
     private AsyncTask async;
 
 
+    @RequestMapping("/hello/id")
+    public int add(){
+        Actor   actor=actorMapper.select(23);
+        actorMapper.insertOrUpdate(actor);
+
+        System.out.println("update");
+        return 0;
+    }
+
 
     @RequestMapping("/hello/{id}")
     public Actor index(@PathVariable Integer id) {

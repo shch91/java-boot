@@ -6,10 +6,10 @@ import java.util.Date;
 @Data
 public class Test {
 
-    private  int id;
-    private  int empNo;
-    private  int salary;
-    private Date fromDate;
-    private Date toDate;
+    public  int id;
+    public  int empNo;
+    public  int salary;
+    public Date fromDate;
+    public Date toDate;
 
 }

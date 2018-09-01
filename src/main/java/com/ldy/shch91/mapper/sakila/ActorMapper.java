@@ -10,5 +10,7 @@ public interface ActorMapper {
 
    void update(Actor actor);
 
-   void add(Actor actor);
+   void insert(Actor actor);
+
+    int insertOrUpdate(Actor actor);
 }

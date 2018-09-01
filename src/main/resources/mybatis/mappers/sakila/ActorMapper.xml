@@ -25,9 +25,18 @@
        UPDATE actor SET first_name = #{firstName}, last_name = #{lastName} WHERE actor_id = #{actorId} LIMIT 1
    </update>
 
-    <insert id="add" parameterType="Actor">
-       insert into actor (actor_id ,first_name,last_name,last_update) values
-        (#{actor_id}, #{first_name}, #{last_name}, current_timestamp())
+    <insert id="insert" useGeneratedKeys="true" parameterType="Actor">
+       insert into actor (actor_id, first_name,last_name,last_update) values
+        (#{actorId}, #{firstName}, #{lastName}, current_timestamp())
 
     </insert>
+
+
+    <insert id="insertOrUpdate"  parameterType="Actor">
+       insert into test (actor_id, first_name,last_name,last_update) values
+        (#{actorId}, #{firstName}, #{lastName}, current_timestamp())
+         ON DUPLICATE KEY UPDATE
+         (#{firstName}, #{lastName}, current_timestamp())
+    </insert>
+
 </mapper>
