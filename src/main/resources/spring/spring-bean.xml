@@ -38,5 +38,6 @@
         <constructor-arg index="0" ref="sqlSessionFactoryBean" />
     </bean>
 
+   <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 
 </beans>

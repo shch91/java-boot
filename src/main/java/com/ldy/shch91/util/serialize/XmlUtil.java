@@ -12,8 +12,7 @@ import java.io.OutputStream;
 import java.util.TimeZone;
 
 public class XmlUtil {
-
-
+    
     private static final Logger logger= LoggerFactory.getLogger(XmlUtil.class);
 
     private static final String ENCODING = "UTF-8";

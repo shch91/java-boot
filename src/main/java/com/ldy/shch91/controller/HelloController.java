@@ -1,6 +1,7 @@
 package com.ldy.shch91.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.ldy.shch91.daoentity.Actor;
@@ -30,7 +31,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @RestController
 public class HelloController {
 
-    private   final Logger logger=LoggerFactory.getLogger(getClass());
+    private  static final Logger logger=LoggerFactory.getLogger(HelloController.class);
 
     private ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
 
@@ -44,6 +45,10 @@ public class HelloController {
 
     @Autowired
     private TmpMapper tmpMapper;
+
+
+    @Autowired
+    ObjectMapper objectMapper;
 
     @Autowired
     RedisTemplate<String,String> redisTemplate;

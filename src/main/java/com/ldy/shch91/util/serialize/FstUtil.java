@@ -22,7 +22,7 @@ public class FstUtil {
     }
 
 
-    public static <T> T deserializer(byte[] bytes, Class<T> c) {
+    public static <T> T deserializer(byte[] bytes) {
         return (T) getFST().asObject(bytes);
     }
 }
