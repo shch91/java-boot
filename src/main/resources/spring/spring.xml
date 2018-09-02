@@ -36,6 +36,8 @@
 
     <import resource="./spring-mybatis.xml"/>
     <import resource="./spring-aop.xml"/>
+    <import resource="./spring-activemq.xml"/>
+    <import resource="./activemq-listener.xml"/>
     <!--<import resource="./spring-ehcache.xml"/>-->
 
 </beans>

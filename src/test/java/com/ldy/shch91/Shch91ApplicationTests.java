@@ -23,8 +23,6 @@ public class Shch91ApplicationTests {
     @Autowired
     private RedisTemplate redisTemplate;
 
-
-
     @Test
     public void testSpringRedis() {
         //stringRedisTemplate的操作

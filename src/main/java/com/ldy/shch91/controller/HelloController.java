@@ -1,6 +1,7 @@
 package com.ldy.shch91.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
@@ -51,7 +52,7 @@ public class HelloController {
     ObjectMapper objectMapper;
 
     @Autowired
-    RedisTemplate<String,String> redisTemplate;
+    RedisTemplate<String,Object> redisTemplate;
 
     @Autowired
     ThreadPoolTaskExecutor threadPoolTaskExecutor;
@@ -67,6 +68,12 @@ public class HelloController {
     public int add(){
         Actor   actor=actorMapper.select(23);
 
+        redisTemplate.opsForValue().set("23",actor);
+
+
+         Actor aot=(Actor)redisTemplate.opsForValue().get("23");
+
+         logger.info(JSON.toJSONString(aot));
 
 //        System.out.println(    JSON.toJSONString(actor));
 //
@@ -84,13 +91,13 @@ public class HelloController {
     public Actor index(@PathVariable Integer id) {
         Actor   actor=actorMapper.select(id);
         ValueOperations valOps=redisTemplate.opsForValue();
-         HashMap<String,String> map=new HashMap<>();
+         HashMap<String,Object> map=new HashMap<>();
          map.put("as","fddas");
-         map.put("dfa","fdsfdafdsa");
+         map.put("dfa",actor);
 
          valOps.multiSet(map);
 
-        async.dotask();
+         async.dotask();
 
          logger.info("获取演员id",actor.toString());
          return actor;
@@ -106,6 +113,8 @@ public class HelloController {
         Actor   actor=actorMapper.select(32);
         logger.info(JSON.toJSONString(actor));
         redisTemplate.opsForValue().set("userToJson", JSON.toJSONString(actor));
+
+
 
         return "first controller";
     }
