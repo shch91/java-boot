@@ -6,6 +6,9 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
+    private  static final Logger logger= LoggerFactory.getLogger(DynamicDataSource.class);
+
+
     @Override
     protected Object determineCurrentLookupKey() {
         return DynamicDataSourceContextHolder.getDataSourceType();

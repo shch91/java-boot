@@ -11,31 +11,31 @@
     http://www.springframework.org/schema/jms
     http://www.springframework.org/schema/jms/spring-jms.xsd">
     <!-- 消息监听器 -->
-    <!--<bean id="queueReceiver1"-->
-          <!--class="xxxxxx.listener.QueueMessageListener1"></bean>-->
-    <!--<bean id="queueReceiver2"-->
-          <!--class="xxxxxx.listener.QueueMessageListener2"></bean>-->
+    <bean id="queueReceiver1"
+          class="com.ldy.shch91.activeMq.QueueListener"></bean>
+    <!--<bean id="queueReceiver2"
+          class="xxxxxx.listener.QueueMessageListener2"></bean>
+-->
 
+    <bean id="topicReceiver1"
+          class="com.ldy.shch91.activeMq.TopicListener"></bean>
+  <!--  <bean id="topicReceiver2"
+          class="xxxxxx.listener.TopicMessageListener2"></bean>
+-->
 
-    <!--<bean id="topicReceiver1"-->
-          <!--class="xxxxxx.listener.TopicMessageListener1"></bean>-->
-    <!--<bean id="topicReceiver2"-->
-          <!--class="xxxxxx.listener.TopicMessageListener2"></bean>-->
-
-    <!-- Queue监听器 -->
-    <!--<jms:listener-container destination-type="queue"-->
-                            <!--container-type="default" connection-factory="connectionFactory"-->
-                            <!--acknowledge="auto">-->
-        <!--<jms:listener destination="queue" ref="queueReceiver1" />-->
+    <jms:listener-container destination-type="queue"
+                            container-type="default" connection-factory="connectionFactory"
+                            acknowledge="auto">
+        <jms:listener destination="queue" ref="queueReceiver1" />
         <!--<jms:listener destination="queue" ref="queueReceiver2" />-->
-    <!--</jms:listener-container>-->
+    </jms:listener-container>
 
 
-    <!-- Topic监听器 -->
-    <!--<jms:listener-container destination-type="topic"-->
-                            <!--container-type="default" connection-factory="connectionFactory"-->
-                            <!--acknowledge="auto">-->
-        <!--<jms:listener destination="topic" ref="topicReceiver1" />-->
+
+    <jms:listener-container destination-type="topic"
+                            container-type="default" connection-factory="connectionFactory"
+                            acknowledge="auto">
+        <jms:listener destination="topic" ref="topicReceiver1" />
         <!--<jms:listener destination="topic" ref="topicReceiver2" />-->
-    <!--</jms:listener-container>-->
+    </jms:listener-container>
 </beans>
