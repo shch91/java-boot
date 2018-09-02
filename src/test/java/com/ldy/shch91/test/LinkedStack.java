@@ -1,5 +1,7 @@
 package com.ldy.shch91.test;
 
+import org.junit.Test;
+
 public class LinkedStack<T> {
   private static class Node<U> {
     U item;
@@ -21,7 +23,8 @@ public class LinkedStack<T> {
       top = top.next;
     return result;
   }
-  public static void main(String[] args) {
+  @Test
+  public static void fgf(String[] args) {
     LinkedStack<String> lss = new LinkedStack<String>();
     for(String s : "Phasers on stun!".split(" "))
       lss.push(s);

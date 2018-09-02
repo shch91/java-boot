@@ -52,9 +52,6 @@ public class VolatileExample {
 
    @Test
     public  void fd(){
-
-
-
         VolatileExample exampl=new VolatileExample();
            A a=exampl.new A();
            B b=exampl.new B();

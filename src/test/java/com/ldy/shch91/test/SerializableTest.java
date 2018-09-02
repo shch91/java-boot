@@ -5,8 +5,10 @@ import org.junit.Test;
 import java.io.*;
 
 public class SerializableTest {
+
+
     @Test
-    public  void mai() throws Exception {
+    public  void gfdgs() throws Exception {
         FileOutputStream fos = new FileOutputStream("temp.out");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         TestObject testObject = new TestObject();
