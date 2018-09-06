@@ -18,9 +18,10 @@ public class CuratorHelloworld {
     public static void main(String[] args) throws Exception {
         //重试策略，初试时间1秒，重试10次
         RetryPolicy policy = new ExponentialBackoffRetry(1000, 10);
+
         //通过工厂创建Curator
-        CuratorFramework curator = CuratorFrameworkFactory.builder().connectString(CONNECT_ADDR)
-                .sessionTimeoutMs(SESSION_TIMEOUT).retryPolicy(policy).build();
+        CuratorFramework curator =CuratorFrameworkFactory.newClient(CONNECT_ADDR, new ExponentialBackoffRetry(1000, 3));
+
         //开启连接
         curator.start();
  
@@ -39,7 +40,7 @@ public class CuratorHelloworld {
         String data = new String(curator.getData().forPath("/super/c1")); //获取节点数据
         System.out.println(data);
         Stat stat = curator.checkExists().forPath("/super/c1"); //判断指定节点是否存在
-        System.out.println(stat);
+        System.out.println("stat:"+stat);
         curator.setData().forPath("/super/c1", "c1新内容".getBytes()); //更新节点数据
         data = new String(curator.getData().forPath("/super/c1"));
         System.out.println(data);
@@ -48,7 +49,7 @@ public class CuratorHelloworld {
             System.out.println(child);
         }
         //放心的删除节点，deletingChildrenIfNeeded()方法表示如果存在子节点的话，同时删除子节点
-        curator.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
+        //curator.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
         curator.close();
     }
 }
