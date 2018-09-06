@@ -13,7 +13,6 @@ import com.ldy.shch91.mapper.employees.TmpMapper;
 import com.ldy.shch91.mapper.sakila.ActorMapper;
 import com.ldy.shch91.task.AsyncTask;
 import com.ldy.shch91.util.readResource.ReadResource;
-import com.ldy.shch91.zk.ZkClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,16 +77,8 @@ public class HelloController {
     @Autowired
     private Destination queueDestination;
 
-    @Autowired
-    ZkClient zkClient;
 
 
-    @RequestMapping("/zk")
-    public void fdsaf() throws JMSException {
-        zkClient.register();
-
-
-    }
 
     @RequestMapping("/msg")
     public void ada() throws JMSException {

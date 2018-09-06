@@ -41,6 +41,5 @@
     <import resource="./spring-activemq.xml"/>
     <import resource="./activemq-listener.xml"/>
 
-    <!--<import resource="./zookeeper-curator.xml"/>-->
 
 </beans>
