@@ -45,10 +45,5 @@ public class HelloServer {
             bossGroup.shutdownGracefully();
         }
     }
-    
-    public static void main(String[] args) throws Exception {
-        int port = 10110;
-        new HelloServer(port).run();
-    }
 
 }

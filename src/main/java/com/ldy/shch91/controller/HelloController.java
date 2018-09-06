@@ -13,6 +13,7 @@ import com.ldy.shch91.mapper.employees.TmpMapper;
 import com.ldy.shch91.mapper.sakila.ActorMapper;
 import com.ldy.shch91.task.AsyncTask;
 import com.ldy.shch91.util.readResource.ReadResource;
+import com.ldy.shch91.zk.ZkClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +38,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @RestController
 public class HelloController {
 
-    private  static final Logger logger=LoggerFactory.getLogger(HelloController.class);
+    private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 
-    private ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
+    private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
-    private static final LocalDate beginDate=LocalDate.of(2018,1,1);
+    private static final LocalDate beginDate = LocalDate.of(2018, 1, 1);
 
     @Resource
     private ActorMapper actorMapper;
@@ -56,7 +57,7 @@ public class HelloController {
     ObjectMapper objectMapper;
 
     @Autowired
-    RedisTemplate<String,Object> redisTemplate;
+    RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
     ThreadPoolTaskExecutor threadPoolTaskExecutor;
@@ -77,27 +78,38 @@ public class HelloController {
     @Autowired
     private Destination queueDestination;
 
-    @RequestMapping("/msg")
-    public  void ada() throws JMSException {
+    @Autowired
+    ZkClient zkClient;
 
-        Actor   actor=actorMapper.select(4);
+
+    @RequestMapping("/zk")
+    public void fdsaf() throws JMSException {
+        zkClient.register();
+
+
+    }
+
+    @RequestMapping("/msg")
+    public void ada() throws JMSException {
+
+        Actor actor = actorMapper.select(4);
         producerService.sendMessage(JSON.toJSONString(actor));
-       TextMessage msg= consumerService.receive(queueDestination);
-       logger.info(JSON.toJSONString(msg.getText()));
+        TextMessage msg = consumerService.receive(queueDestination);
+        logger.info(JSON.toJSONString(msg.getText()));
 
     }
 
     @RequestMapping("/hello/id")
-    public int add(){
-        Actor   actor=actorMapper.select(23);
+    public int add() {
+        Actor actor = actorMapper.select(23);
 
-        redisTemplate.opsForValue().set("23",actor);
+        redisTemplate.opsForValue().set("23", actor);
 
-          Actor aot=(Actor)redisTemplate.opsForValue().get("23");
+        Actor aot = (Actor) redisTemplate.opsForValue().get("23");
 
-         logger.info(JSON.toJSONString(aot));
+        logger.info(JSON.toJSONString(aot));
 
-         producerService.sendMessage(JSON.toJSONString(actor));
+        producerService.sendMessage(JSON.toJSONString(actor));
 
         System.out.println(JSON.toJSONString(actor));
         actorMapper.insertOrUpdate(actor);
@@ -108,31 +120,30 @@ public class HelloController {
 
     @RequestMapping("/hello/{id}")
     public Actor index(@PathVariable Integer id) {
-        Actor   actor=actorMapper.select(id);
-        ValueOperations valOps=redisTemplate.opsForValue();
-         HashMap<String,Object> map=new HashMap<>();
-         map.put("as","fddas");
-         map.put("dfa",actor);
+        Actor actor = actorMapper.select(id);
+        ValueOperations valOps = redisTemplate.opsForValue();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("as", "fddas");
+        map.put("dfa", actor);
 
-         valOps.multiSet(map);
+        valOps.multiSet(map);
 
-         async.dotask();
+        async.dotask();
 
-         logger.info("获取演员id",actor.toString());
-         return actor;
+        logger.info("获取演员id", actor.toString());
+        return actor;
     }
 
     @RequestMapping("/first")
     public String first() {
 
-     //readResource.getResourceByClassOrClassLoader();
-        boolean fda= Strings.isNullOrEmpty("");
+        //readResource.getResourceByClassOrClassLoader();
+        boolean fda = Strings.isNullOrEmpty("");
 
-        Vector ver=new Vector<String>();
-        Actor   actor=actorMapper.select(32);
+        Vector ver = new Vector<String>();
+        Actor actor = actorMapper.select(32);
         logger.info(JSON.toJSONString(actor));
         redisTemplate.opsForValue().set("userToJson", JSON.toJSONString(actor));
-
 
 
         return "first controller";
@@ -145,30 +156,32 @@ public class HelloController {
 
     @RequestMapping("/kk")
     public void test() {
-        List<Salary> res=  salaryMapper.getAll();
+        List<Salary> res = salaryMapper.getAll();
         tmpMapper.add(res.get(0));
-        List<List<Salary>> part=Lists.partition(res,20000);
+        List<List<Salary>> part = Lists.partition(res, 20000);
 
-        for(List<Salary> item:part){
+        for (List<Salary> item : part) {
             threadPoolTaskExecutor.execute(new CacheTask(item));
         }
-        return ;
+        return;
     }
 
-    private  class CacheTask implements Runnable {
+    private class CacheTask implements Runnable {
 
 
-        public CacheTask(List<Salary> list){
-            salaryList=list;
+        public CacheTask(List<Salary> list) {
+            salaryList = list;
         }
-         List<Salary> salaryList;
+
+        List<Salary> salaryList;
+
         @Override
         public void run() {
-              batchAdd(salaryList);
+            batchAdd(salaryList);
         }
     }
 
-    private void batchAdd(List<Salary>list){
+    private void batchAdd(List<Salary> list) {
         tmpMapper.addBatch(list);
     }
 
