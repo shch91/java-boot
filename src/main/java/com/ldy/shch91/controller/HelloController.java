@@ -90,8 +90,7 @@ public class HelloController {
         Actor actor = actorMapper.select(4);
         zkCuratorListener.nodeCache("/shch91");
         logger.info(JSON.toJSONString(actor));
-
-        curatorFramework.delete().forPath("/shch91");
+        
     }
 
     @RequestMapping("/hello/id")
