@@ -24,10 +24,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import javax.jms.Destination;
-import javax.jms.TextMessage;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -90,7 +88,7 @@ public class HelloController {
         Actor actor = actorMapper.select(4);
         zkCuratorListener.nodeCache("/shch91");
         logger.info(JSON.toJSONString(actor));
-        
+
     }
 
     @RequestMapping("/hello/id")
