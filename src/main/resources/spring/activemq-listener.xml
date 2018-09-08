@@ -24,7 +24,7 @@
 -->
 
     <jms:listener-container destination-type="queue"
-                            container-type="default" connection-factory="mqConnectionFactory"
+                            container-type="default" connection-factory="connectionFactory"
                             acknowledge="auto">
         <jms:listener destination="queue" ref="queueReceiver1" />
         <!--<jms:listener destination="queue" ref="queueReceiver2" />-->
@@ -33,7 +33,7 @@
 
 
     <jms:listener-container destination-type="topic"
-                            container-type="default" connection-factory="mqConnectionFactory"
+                            container-type="default" connection-factory="connectionFactory"
                             acknowledge="auto">
         <jms:listener destination="topic" ref="topicReceiver1" />
         <!--<jms:listener destination="topic" ref="topicReceiver2" />-->

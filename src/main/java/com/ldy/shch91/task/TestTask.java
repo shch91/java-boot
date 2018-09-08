@@ -13,8 +13,8 @@ public class TestTask {
 
 
     //定义每三秒执行任务
-    @Scheduled(fixedRate=3000)
-    //@Scheduled(cron="4-10 * * * * ?")
+    //@Scheduled(fixedRate=3000)
+    @Scheduled(cron="0 1 * * * ?")
     public void reportCurrentTime() {
         logger.info("task runed");
     }
