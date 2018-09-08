@@ -4,9 +4,9 @@
     cd /usr/local/Cellar/redis/4.0.11
 
 #配置 redis
-    /usr/local/etc/redis1.conf
-    /usr/local/etc/redis2.conf
-    /usr/local/etc/redis3.conf
+    /usr/local/etc/redis/redis1.conf
+    /usr/local/etc/redis/redis2.conf
+    /usr/local/etc/redis/redis3.conf
 
    port 6379
    daemonize yes
@@ -16,9 +16,9 @@
    slaveof 127.0.0.1 6379      // 从属主节点
 
 #启动 redis
-    redis-server /usr/local/etc/redis1.conf
-    redis-server /usr/local/etc/redis2.conf
-    redis-server /usr/local/etc/redis3.conf
+    redis-server /usr/local/etc/redis/redis1.conf
+    redis-server /usr/local/etc/redis/redis2.conf
+    redis-server /usr/local/etc/redis/redis3.conf
 
 #连接
     redis-cli -h 127.0.0.1 -p 6379
@@ -32,9 +32,9 @@
 
 ----------------------------------------------
 #配置 sentinel
-    /usr/local/etc/redis-sentinel1.conf
-    /usr/local/etc/redis-sentinel2.conf
-    /usr/local/etc/redis-sentinel3.conf
+    /usr/local/etc/redis/redis-sentinel1.conf
+    /usr/local/etc/redis/redis-sentinel2.conf
+    /usr/local/etc/redis/redis-sentinel3.conf
 
 
 #Sentinel节点的端口
@@ -59,9 +59,9 @@
     sentinel failover-timeout mymaster 180000
 
 #启动 sentinel
-    redis-sentinel /usr/local/etc/redis-sentinel1.conf
-    redis-sentinel /usr/local/etc/redis-sentinel2.conf
-    redis-sentinel /usr/local/etc/redis-sentinel3.conf
+    redis-sentinel /usr/local/etc/redis/redis-sentinel1.conf
+    redis-sentinel /usr/local/etc/redis/redis-sentinel2.conf
+    redis-sentinel /usr/local/etc/redis/redis-sentinel3.conf
 
 #连接
     redis-cli -p 26379
