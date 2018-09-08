@@ -30,9 +30,9 @@
     </bean>
 
     <!--应用场景一：查看当前Client是不是主机-->
-    <bean id="adShowLeader" class="com.ldy.shch91.zk.LeaderDispatch" scope="singleton" init-method="init">
+    <bean id="leaderDispatch" class="com.ldy.shch91.zk.LeaderDispatch" init-method="call">
         <constructor-arg index="0" ref="curatorFramework" />
-        <constructor-arg index="1" value="super" />
+        <constructor-arg index="1" value="/super" />
     </bean>
 
 </beans>

@@ -32,6 +32,7 @@
      <!--配置文件-->
     <import resource="./spring-redis.xml" />
     <import resource="./spring-druid.xml" />
+
     <import resource="./spring-bean.xml"/>
 
     <import resource="./spring-mybatis.xml"/>
@@ -41,5 +42,6 @@
     <import resource="./spring-activemq.xml"/>
     <import resource="./activemq-listener.xml"/>
 
+    <import resource="./zookeeper-curator.xml"></import>
 
 </beans>

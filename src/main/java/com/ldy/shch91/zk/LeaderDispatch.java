@@ -6,9 +6,10 @@ import org.apache.curator.framework.recipes.leader.LeaderSelectorListenerAdapter
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LeaderDispatch extends ZKBase {
+public class LeaderDispatch  {
 
     private static Logger logger = LoggerFactory.getLogger(LeaderDispatch.class);
+
 
     private boolean leader = false;
 
@@ -18,8 +19,10 @@ public class LeaderDispatch extends ZKBase {
 
     private String path;
 
+    private CuratorFramework curatorFramework;
+
     public LeaderDispatch(CuratorFramework curatorFramework, String path) {
-        super(curatorFramework);
+        this.curatorFramework=curatorFramework;
         this.path = path;
     }
 
@@ -32,8 +35,7 @@ public class LeaderDispatch extends ZKBase {
                     @Override
                     public void takeLeadership(CuratorFramework curatorFramework)
                             throws Exception {
-                        System.out.println("成为Master");
-                        logger.info(" leader 选择成功！！！");
+                        logger.info("成为Master: leader 选择成功！！！");
                         leader = true;
                         while (true) {
                             Thread.sleep(Integer.MAX_VALUE);
@@ -44,7 +46,7 @@ public class LeaderDispatch extends ZKBase {
         selector.start();
     }
 
-    @Override
+
     public void call() {
         leader = false;
         leaderSelector();
