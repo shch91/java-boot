@@ -20,7 +20,8 @@
         <constructor-arg index="1" value="3" />
     </bean>
 
-    <bean id="curatorFramework" class="org.apache.curator.framework.CuratorFrameworkFactory" factory-method="newClient" init-method="start">
+    <bean id="curatorFramework" class="org.apache.curator.framework.CuratorFrameworkFactory"
+          factory-method="newClient" init-method="start" destroy-method="close">
         <constructor-arg index="0" value="${zookeeper.server}" />
         <!-- sessionTimeoutMs会话超时时间，单位为毫秒。默认是60000ms  -->
         <constructor-arg index="1" value="5000" />

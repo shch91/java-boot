@@ -14,6 +14,7 @@ import com.ldy.shch91.mapper.sakila.ActorMapper;
 import com.ldy.shch91.task.AsyncTask;
 import com.ldy.shch91.util.readResource.ReadResource;
 import com.ldy.shch91.zk.ZkCuratorListener;
+import org.apache.curator.framework.CuratorFramework;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,16 +81,17 @@ public class HelloController {
     @Autowired
     ZkCuratorListener zkCuratorListener;
 
+    @Autowired
+    CuratorFramework curatorFramework;
+
     @RequestMapping("/msg")
     public void ada() throws Exception {
 
         Actor actor = actorMapper.select(4);
-        producerService.sendMessage(JSON.toJSONString(actor));
-        TextMessage msg = consumerService.receive(queueDestination);
+        zkCuratorListener.nodeCache("/shch91");
+        logger.info(JSON.toJSONString(actor));
 
-        zkCuratorListener.nodeCache("shch91");
-        logger.info(JSON.toJSONString(msg.getText()));
-
+        curatorFramework.delete().forPath("/shch91");
     }
 
     @RequestMapping("/hello/id")

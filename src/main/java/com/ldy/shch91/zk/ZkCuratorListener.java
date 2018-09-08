@@ -30,13 +30,12 @@ public class ZkCuratorListener {
             logger.info("状态：" + cache.getCurrentData().getStat());
         });
 
+
         curator.create().forPath(path, "1234".getBytes());
         Thread.sleep(1000);
         curator.setData().forPath(path, "5678".getBytes());
         Thread.sleep(1000);
-        curator.delete().forPath(path);
-        Thread.sleep(5000);
-        curator.close();
+
     }
 
     public void  pathChildrenCache(String path) throws Exception {
@@ -75,7 +74,7 @@ public class ZkCuratorListener {
         curator.setData().forPath(path+"/sc1", "c1新内容".getBytes());
         curator.delete().guaranteed().deletingChildrenIfNeeded().forPath(path);
         Thread.sleep(5000);
-        curator.close();
+
     }
 
     public void treeCache(String path) throws Exception {
@@ -107,6 +106,5 @@ public class ZkCuratorListener {
         curator.delete().forPath("/treeCache/c1");
         curator.delete().forPath("/treeCache");
         Thread.sleep(5000);
-        curator.close();
     }
 }
