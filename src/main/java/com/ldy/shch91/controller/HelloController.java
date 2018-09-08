@@ -103,6 +103,7 @@ public class HelloController {
         producerService.sendMessage(JSON.toJSONString(actor));
 
         System.out.println(JSON.toJSONString(actor));
+
         actorMapper.insertOrUpdate(actor);
 
         return 0;
