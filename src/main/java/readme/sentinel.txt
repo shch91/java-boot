@@ -59,9 +59,9 @@
     sentinel failover-timeout mymaster 180000
 
 #启动 sentinel
-    redis-sentinel /usr/local/etc/redis/redis-sentinel1.conf
-    redis-sentinel /usr/local/etc/redis/redis-sentinel2.conf
-    redis-sentinel /usr/local/etc/redis/redis-sentinel3.conf
+    redis-sentinel /usr/local/etc/redis/redis-sentinel1.conf &
+    redis-sentinel /usr/local/etc/redis/redis-sentinel2.conf &
+    redis-sentinel /usr/local/etc/redis/redis-sentinel3.conf &
 
 #连接
     redis-cli -p 26379
