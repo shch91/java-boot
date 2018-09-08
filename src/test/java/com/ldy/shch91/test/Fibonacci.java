@@ -1,10 +1,20 @@
 package com.ldy.shch91.test;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class Fibonacci implements Generator<Integer> {
+
+  private static Logger logger = LoggerFactory.getLogger(Fibonacci.class);
+
   private int count = 0;
   public Integer next() { return fib(count++); }
   private int fib(int n) {
@@ -16,20 +26,7 @@ public class Fibonacci implements Generator<Integer> {
   public  void ghj() {
     Fibonacci gen = new Fibonacci();
     for(int i = 0; i < 18; i++)
-      System.out.print(gen.next() + "\t");
-
-    System.out.println();
-
-    String s1 = "a";
-
-    String s2 = s1 + "b";
-
-    String s3 = "a" + "b";
-
-    System.out.println(s2 == "ab");
-
-    System.out.println(s3 == "ab");
-
+      logger.info(gen.next() + "\t");
   }
 
   @Test

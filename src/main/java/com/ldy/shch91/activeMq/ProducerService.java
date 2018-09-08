@@ -24,7 +24,7 @@ public class ProducerService {
     private JmsTemplate jmsTemplate;
 
     public void sendMessage(Destination destination,final String msg){
-        System.out.println(Thread.currentThread().getName()+" 向队列"+destination.toString()+"发送消息---------------------->"+msg);
+        logger.info(Thread.currentThread().getName()+" 向队列"+destination.toString()+"发送消息---------------------->"+msg);
         jmsTemplate.send(destination, new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {
                 return session.createTextMessage(msg);
@@ -34,7 +34,7 @@ public class ProducerService {
 
     public void sendMessage(final String msg){
         String destination = jmsTemplate.getDefaultDestinationName();
-        System.out.println(Thread.currentThread().getName()+" 向队列"+destination+"发送消息---------------------->"+msg);
+        logger.info(Thread.currentThread().getName()+" 向队列"+destination+"发送消息---------------------->"+msg);
         jmsTemplate.send(new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {
                 return session.createTextMessage(msg);

@@ -1,7 +1,6 @@
 package com.ldy.shch91.zk;
 
 import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.framework.api.CuratorListener;
 import org.apache.curator.framework.recipes.queue.DistributedQueue;
@@ -9,29 +8,36 @@ import org.apache.curator.framework.recipes.queue.QueueBuilder;
 import org.apache.curator.framework.recipes.queue.QueueConsumer;
 import org.apache.curator.framework.recipes.queue.QueueSerializer;
 import org.apache.curator.framework.state.ConnectionState;
-import org.apache.curator.retry.ExponentialBackoffRetry;
 
 import org.apache.curator.utils.CloseableUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class DistributedQueueExample {
-    private static final String PATH = "/example/queue";
-    private static final String CONNECT_ADDR = "localhost:2181,localhost:2182,localhost:2183";
+@Component
+public class ZkDistributedQueue {
 
-    public static void main(String[] args) throws Exception {
-        CuratorFramework client = null;
+    private  static final Logger logger= LoggerFactory.getLogger(ZkDistributedQueue.class);
+
+    @Autowired
+    private  CuratorFramework client;
+
+    private String path="/dis";
+
+    public  void gfds(String[] args) throws Exception {
+
         DistributedQueue<String> queue = null;
         try {
-            client = CuratorFrameworkFactory.newClient(CONNECT_ADDR, new ExponentialBackoffRetry(1000, 3));
             client.getCuratorListenable().addListener(new CuratorListener() {
                 @Override
                 public void eventReceived(CuratorFramework client, CuratorEvent event) throws Exception {
-                    System.out.println("CuratorEvent: " + event.getType().name());
+                    logger.info("CuratorEvent: " + event.getType().name());
                 }
             });
 
-            client.start();
             QueueConsumer<String> consumer = createQueueConsumer();
-            QueueBuilder<String> builder = QueueBuilder.builder(client, consumer, createQueueSerializer(), PATH);
+            QueueBuilder<String> builder = QueueBuilder.builder(client, consumer, createQueueSerializer(), path);
             queue = builder.buildQueue();
             queue.start();
 
@@ -73,12 +79,12 @@ public class DistributedQueueExample {
 
             @Override
             public void stateChanged(CuratorFramework client, ConnectionState newState) {
-                System.out.println("connection new state: " + newState.name());
+                logger.info("connection new state: " + newState.name());
             }
 
             @Override
             public void consumeMessage(String message) throws Exception {
-                System.out.println("consume one message: " + message);                
+                logger.info("consume one message: " + message);
             }
 
         };

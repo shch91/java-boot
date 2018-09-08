@@ -54,7 +54,7 @@ public class XmlUtil {
     public static void toXML(Object obj, OutputStream out) {
         XStream xstream = XSTREAM;
         xstream.toXML(obj,out);
-        System.out.println("输出成功");
+        logger.info("输出成功");
     }
 
     //文件流 to bean
@@ -64,7 +64,7 @@ public class XmlUtil {
         xstream.processAnnotations(t);
         try {
             target =  xstream.fromXML(in);
-            System.out.println("输入成功");
+            logger.info("输入成功");
         } catch (Exception e) {
             logger.error( "{}",e);
         }

@@ -26,7 +26,7 @@ public class ConsumerService {
     public TextMessage receive(Destination destination){
         TextMessage textMessage = (TextMessage) jmsTemplate.receive(destination);
         try{
-            System.out.println("从队列" + destination.toString() + "收到了消息：\t"
+            logger.info("从队列" + destination.toString() + "收到了消息：\t"
                     + textMessage.getText());
         } catch (JMSException e) {
             e.printStackTrace();

@@ -13,6 +13,7 @@ import com.ldy.shch91.mapper.employees.TmpMapper;
 import com.ldy.shch91.mapper.sakila.ActorMapper;
 import com.ldy.shch91.task.AsyncTask;
 import com.ldy.shch91.util.readResource.ReadResource;
+import com.ldy.shch91.zk.ZkCuratorListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
-import javax.jms.JMSException;
 import javax.jms.TextMessage;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -77,15 +77,17 @@ public class HelloController {
     @Autowired
     private Destination queueDestination;
 
-
-
+    @Autowired
+    ZkCuratorListener zkCuratorListener;
 
     @RequestMapping("/msg")
-    public void ada() throws JMSException {
+    public void ada() throws Exception {
 
         Actor actor = actorMapper.select(4);
         producerService.sendMessage(JSON.toJSONString(actor));
         TextMessage msg = consumerService.receive(queueDestination);
+
+        zkCuratorListener.nodeCache("shch91");
         logger.info(JSON.toJSONString(msg.getText()));
 
     }
@@ -102,7 +104,7 @@ public class HelloController {
 
         producerService.sendMessage(JSON.toJSONString(actor));
 
-        System.out.println(JSON.toJSONString(actor));
+        logger.info(JSON.toJSONString(actor));
 
         actorMapper.insertOrUpdate(actor);
 

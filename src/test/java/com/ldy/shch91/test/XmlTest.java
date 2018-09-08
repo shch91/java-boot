@@ -19,6 +19,7 @@ import javax.annotation.Resource;
 @SpringBootTest
 public class XmlTest {
 
+    private  static final Logger logger= LoggerFactory.getLogger(XmlTest.class);
 
     @Resource
     ActorMapper actorMapper;
@@ -26,7 +27,6 @@ public class XmlTest {
     @Autowired
     ObjectMapper objectMapper;
 
-    private  static final Logger logger= LoggerFactory.getLogger(XmlTest.class);
 
     @Test
     public  void fdsa(){

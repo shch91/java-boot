@@ -8,8 +8,13 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HelloServer {
+
+    private static final Logger logger = LoggerFactory.getLogger(HelloServer.class);
+
     private int port;
     
     public HelloServer(int port) {
@@ -19,7 +24,7 @@ public class HelloServer {
     public void run() throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup();        // 用来接收进来的连接
         EventLoopGroup workerGroup = new NioEventLoopGroup();    // 用来处理已经被接收的连接
-        System.out.println("准备运行端口：" + port);
+        logger.info("准备运行端口：" + port);
         
         try {
             ServerBootstrap b = new ServerBootstrap();

@@ -3,6 +3,8 @@ package com.ldy.shch91;
 import com.ldy.shch91.test.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.*;
@@ -14,6 +16,9 @@ import java.util.Set;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Shch91ApplicationTests {
+
+
+    private static Logger logger = LoggerFactory.getLogger(Shch91ApplicationTests.class);
 
     @Test
     public void contextLoads() {
@@ -28,8 +33,8 @@ public class Shch91ApplicationTests {
         // String读写
         redisTemplate.delete("myStr");
         redisTemplate.opsForValue().set("myStr", "skyLine");
-        System.out.println(redisTemplate.opsForValue().get("myStr"));
-        System.out.println("---------------");
+        logger.info(redisTemplate.opsForValue().get("myStr").toString());
+        logger.info("---------------");
 
         // List读写
         redisTemplate.delete("myList");
@@ -39,9 +44,9 @@ public class Shch91ApplicationTests {
         List<String> listCache = redisTemplate.opsForList().range(
                 "myList", 0, -1);
         for (String s : listCache) {
-            System.out.println(s);
+            logger.info(s);
         }
-        System.out.println("---------------");
+        logger.info("---------------");
 
         // Set读写
         redisTemplate.delete("mySet");
@@ -51,9 +56,9 @@ public class Shch91ApplicationTests {
         Set<String> setCache = redisTemplate.opsForSet().members(
                 "mySet");
         for (String s : setCache) {
-            System.out.println(s);
+            logger.info(s);
         }
-        System.out.println("---------------");
+        logger.info("---------------");
 
         // Hash读写
         redisTemplate.delete("myHash");
@@ -63,9 +68,9 @@ public class Shch91ApplicationTests {
         Map<String, String> hashCache = redisTemplate.opsForHash()
                 .entries("myHash");
         for (Map.Entry entry : hashCache.entrySet()) {
-            System.out.println(entry.getKey() + " - " + entry.getValue());
+            logger.info(entry.getKey() + " - " + entry.getValue());
         }
-        System.out.println("---------------");
+        logger.info("---------------");
     }
 
     @Test
@@ -78,7 +83,7 @@ public class Shch91ApplicationTests {
 
        List<Person>  out=  redisTemplate.opsForList().range("persions",0,-1);
        for (Person p:out)
-           System.out.println(p);
+           logger.info(p.toString());
     }
 
     @Test
@@ -91,7 +96,7 @@ public class Shch91ApplicationTests {
 
          Map<Integer,Person> map= redisTemplate.opsForHash().entries("person");
          for(Map.Entry<Integer,Person> entry:map.entrySet()){
-             System.out.println(entry);
+             logger.info(entry.getKey()+":"+entry.getValue());
          }
 
     }

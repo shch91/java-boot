@@ -1,8 +1,19 @@
 package com.ldy.shch91.test;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class LinkedStack<T> {
+
+  private static Logger logger = LoggerFactory.getLogger(LinkedStack.class);
+
   private static class Node<U> {
     U item;
     Node<U> next;
@@ -30,6 +41,6 @@ public class LinkedStack<T> {
       lss.push(s);
     String s;
     while((s = lss.pop()) != null)
-      System.out.println(s);
+      logger.info(s);
   }
 }

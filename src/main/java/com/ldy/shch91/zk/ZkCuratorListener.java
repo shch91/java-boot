@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class CuratorListener {
+public class ZkCuratorListener {
 
-    private static Logger logger = LoggerFactory.getLogger(LeaderDispatch.class);
+    private static Logger logger = LoggerFactory.getLogger(ZkCuratorListener.class);
 
     @Autowired
     protected CuratorFramework curator;
@@ -25,9 +25,9 @@ public class CuratorListener {
         cache.start(true);
         //只会监听节点的创建和修改，删除不会监听
         cache.getListenable().addListener(() -> {
-            System.out.println("路径：" + cache.getCurrentData().getPath());
-            System.out.println("数据：" + new String(cache.getCurrentData().getData()));
-            System.out.println("状态：" + cache.getCurrentData().getStat());
+            logger.info("路径：" + cache.getCurrentData().getPath());
+            logger.info("数据：" + new String(cache.getCurrentData().getData()));
+            logger.info("状态：" + cache.getCurrentData().getStat());
         });
 
         curator.create().forPath(path, "1234".getBytes());
@@ -52,15 +52,15 @@ public class CuratorListener {
         childrenCache.getListenable().addListener((framework, event) -> {
             switch (event.getType()) {
                 case CHILD_ADDED:
-                    System.out.println("CHILD_ADDED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
+                    logger.info("CHILD_ADDED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
                             new String(event.getData().getData()) + "，状态：" + event.getData().getStat());
                     break;
                 case CHILD_UPDATED:
-                    System.out.println("CHILD_UPDATED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
+                    logger.info("CHILD_UPDATED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
                             new String(event.getData().getData()) + "，状态：" + event.getData().getStat());
                     break;
                 case CHILD_REMOVED:
-                    System.out.println("CHILD_REMOVED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
+                    logger.info("CHILD_REMOVED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
                             new String(event.getData().getData()) + "，状态：" + event.getData().getStat());
                     break;
                 default:
@@ -84,15 +84,15 @@ public class CuratorListener {
         treeCache.getListenable().addListener((curatorFramework, treeCacheEvent) -> {
             switch (treeCacheEvent.getType()) {
                 case NODE_ADDED:
-                    System.out.println("NODE_ADDED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
+                    logger.info("NODE_ADDED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
                             + "，状态：" + treeCacheEvent.getData().getStat());
                     break;
                 case NODE_UPDATED:
-                    System.out.println("NODE_UPDATED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
+                    logger.info("NODE_UPDATED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
                             + "，状态：" + treeCacheEvent.getData().getStat());
                     break;
                 case NODE_REMOVED:
-                    System.out.println("NODE_REMOVED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
+                    logger.info("NODE_REMOVED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
                             + "，状态：" + treeCacheEvent.getData().getStat());
                     break;
                 default:
