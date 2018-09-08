@@ -17,7 +17,7 @@
                            brokerURL="tcp://localhost:61616" userName="admin" password="admin"/>
 
 
-    <bean id="connectionFactory"
+    <bean id="mqConnectionFactory"
           class="org.springframework.jms.connection.CachingConnectionFactory">
         <property name="targetConnectionFactory" ref="amqConnectionFactory"/>
 
@@ -26,7 +26,7 @@
 
 
     <bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
-        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="connectionFactory" ref="mqConnectionFactory"/>
         <property name="defaultDestination" ref="queueDestination"/>
         <property name="receiveTimeout" value="10000"/>
         <property name="pubSubDomain" value="false"/>
@@ -34,7 +34,7 @@
 
 
     <bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
-        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="connectionFactory" ref="mqConnectionFactory"/>
         <property name="defaultDestination" ref="topicDestination"/>
         <property name="pubSubDomain" value="true"/>
         <property name="receiveTimeout" value="60000"/>

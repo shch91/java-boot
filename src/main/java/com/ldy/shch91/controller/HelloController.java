@@ -56,7 +56,7 @@ public class HelloController {
     ObjectMapper objectMapper;
 
     @Autowired
-    RedisTemplate<String, Object> redisTemplate;
+    RedisTemplate redisTemplate;
 
     @Autowired
     ThreadPoolTaskExecutor threadPoolTaskExecutor;
