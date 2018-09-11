@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import com.ldy.shch91.activeMq.ConsumerService;
-import com.ldy.shch91.activeMq.ProducerService;
 import com.ldy.shch91.daoentity.Actor;
 import com.ldy.shch91.daoentity.Salary;
 import com.ldy.shch91.mapper.employees.SalaryMapper;
@@ -66,16 +64,6 @@ public class HelloController {
     @Autowired
     private AsyncTask async;
 
-
-    @Autowired
-    private ProducerService producerService;
-
-    @Autowired
-    private ConsumerService consumerService;
-
-    @Autowired
-    private Destination queueDestination;
-
     @Autowired
     ZkCuratorListener zkCuratorListener;
 
@@ -100,8 +88,6 @@ public class HelloController {
         Actor aot = (Actor) redisTemplate.opsForValue().get("23");
 
         logger.info(JSON.toJSONString(aot));
-
-        producerService.sendMessage(JSON.toJSONString(actor));
 
         logger.info(JSON.toJSONString(actor));
 
