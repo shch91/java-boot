@@ -27,11 +27,11 @@
     <!--<context:annotation-config />-->
 
     <!-- 自动扫描注解的bean -->
-    <context:component-scan base-package="com.ldy.shch91" />
+    <context:component-scan base-package="com.ldy.shch91"/>
 
      <!--配置文件-->
-    <import resource="./spring-redis.xml" />
-    <import resource="./spring-druid.xml" />
+    <import resource="./spring-redis.xml"/>
+    <import resource="./spring-druid.xml"/>
 
     <import resource="./spring-bean.xml"/>
 

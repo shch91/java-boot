@@ -1,5 +1,8 @@
 package com.ldy.shch91;
 
+import com.ldy.shch91.netty.DiscardServer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,12 +14,18 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync
-//@ComponentScan(basePackages ={"com.ldy.shch91"} )
-public class Shch91Application {
+public class Shch91Application implements CommandLineRunner {
+
+    @Autowired
+    DiscardServer discardServer;
 
     public static void main(String[] args) {
         SpringApplication.run(Shch91Application.class, args);
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        discardServer.run(8088);
+    }
 
 }
