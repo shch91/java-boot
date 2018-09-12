@@ -40,7 +40,6 @@
 
 
     <import resource="./spring-activemq.xml"/>
-
-    <import resource="./zookeeper-curator.xml"></import>
+    <import resource="./zookeeper-curator.xml"/>
 
 </beans>
