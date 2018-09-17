@@ -17,7 +17,7 @@ public class EchoClient {
 
     public void start(String host, int port) throws Exception {
 
-        
+
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
