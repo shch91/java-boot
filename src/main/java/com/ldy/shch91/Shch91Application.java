@@ -16,7 +16,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync
-public class Shch91Application implements CommandLineRunner {
+public class Shch91Application {
 
     //@Autowired
     DiscardServer discardServer;
@@ -29,9 +29,9 @@ public class Shch91Application implements CommandLineRunner {
         SpringApplication.run(Shch91Application.class, args);
     }
 
-    @Override
+   /* @Override
     public void run(String... args) throws Exception {
         echoServer.run(8088);
-    }
+    }*/
 
 }
