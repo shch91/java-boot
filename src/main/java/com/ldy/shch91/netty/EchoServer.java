@@ -21,6 +21,11 @@ public class EchoServer {
     private static final Logger logger = LoggerFactory.getLogger(EchoServer.class);
 
 
+    public static void main(String[] args) throws Exception {
+       EchoServer server= new EchoServer();
+       server.run(9090);
+    }
+
     public EchoServer() {
 
     }
@@ -60,11 +65,7 @@ public class EchoServer {
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
             // Bind and start to accept incoming connections.
             ChannelFuture f = b.bind(port).sync();
-            // Wait until the server socket is closed.
-            // In this example, this does not happen, but you can do that to gracefully
-            // shut down your server.
-            //sync()会同步等待连接操作结果，用户线程将在此wait()，直到连接操作完成之后，线程被notify(),用户代码继续执行
-            //closeFuture()当Channel关闭时返回一个ChannelFuture,用于链路检测
+
             f.channel().closeFuture().sync();
         } finally {
             //资源优雅释放

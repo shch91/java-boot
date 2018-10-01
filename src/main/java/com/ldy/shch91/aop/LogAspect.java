@@ -21,8 +21,8 @@ import java.util.Arrays;
  * Created by wuwf on 17/4/27. 
  * 日志切面 
  */  
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class LogAspect {
     
     private  final Logger logger=LoggerFactory.getLogger(getClass());

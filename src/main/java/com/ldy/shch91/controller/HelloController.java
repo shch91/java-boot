@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -80,20 +81,18 @@ public class HelloController {
     }
 
     @RequestMapping("/hello/id")
+    @Transactional(rollbackFor = {Exception.class})
     public int add() {
         Actor actor = actorMapper.select(23);
-
-        redisTemplate.opsForValue().set("23", actor);
-
-        Actor aot = (Actor) redisTemplate.opsForValue().get("23");
-
-        logger.info(JSON.toJSONString(aot));
+        
 
         logger.info(JSON.toJSONString(actor));
 
+        actor.setLastName("shch91");
         actorMapper.insertOrUpdate(actor);
-
         return 0;
+        //throw new RuntimeException("insert");
+
     }
 
 

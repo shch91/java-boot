@@ -18,20 +18,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 public class Shch91Application {
 
-    //@Autowired
-    DiscardServer discardServer;
-
-    @Autowired
-    EchoServer echoServer;
-
-
     public static void main(String[] args) {
         SpringApplication.run(Shch91Application.class, args);
     }
 
-   /* @Override
-    public void run(String... args) throws Exception {
-        echoServer.run(8088);
-    }*/
+
 
 }

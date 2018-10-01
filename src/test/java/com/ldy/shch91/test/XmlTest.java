@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.nio.ByteBuffer;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 @RunWith(SpringRunner.class)
@@ -44,5 +46,13 @@ public class XmlTest {
         Pattern INTEGER_PATTERN = Pattern.compile("-?[0-9]+");
         boolean fa=INTEGER_PATTERN.matcher("-06565").matches();
         logger.info(String.valueOf(fa));
+    }
+
+    @Test
+    public void vd(){
+
+
+        String fds=UUID.randomUUID().toString();
+        System.out.println(fds);
     }
 }
