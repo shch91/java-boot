@@ -36,7 +36,7 @@
     <!--
        first_name=#{firstName},last_name=#{lastName}, last_update=current_timestamp()
     -->
-    <insert id="insertOrUpdate" parameterType="Actor">
+    <insert id="insertOrUpdate"  useGeneratedKeys="true" parameterType="Actor">
        insert into test (actor_id, first_name,last_name,last_update) values
         (#{actorId}, #{firstName}, #{lastName}, current_timestamp())
          ON DUPLICATE KEY UPDATE

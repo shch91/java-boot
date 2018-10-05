@@ -84,7 +84,7 @@ public class HelloController {
     @Transactional(rollbackFor = {Exception.class})
     public int add() {
         Actor actor = actorMapper.select(23);
-        
+
 
         logger.info(JSON.toJSONString(actor));
 
