@@ -18,7 +18,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 public class Shch91Application {
 
+
     private static final String SS="test";
+
+    
+
     public static void main(String[] args) {
         SpringApplication.run(Shch91Application.class, args);
     }
