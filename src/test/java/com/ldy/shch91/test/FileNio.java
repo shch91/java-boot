@@ -4,7 +4,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import com.google.common.util.concurrent.*;
 
+import java.util.concurrent.Callable;
+
+import java.util.concurrent.Executors;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -33,4 +37,34 @@ public class FileNio {
         }
         aFile.close();
     }
+    @Test
+    public void fd() throws InterruptedException {
+        ListeningExecutorService pool = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
+
+        final ListenableFuture<String> future = pool.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                Thread.sleep(1000 * 2);
+                return "Task done !";
+            }
+        });
+
+
+        Futures.addCallback(future, new FutureCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                System.out.println(result);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                t.printStackTrace();
+            }
+        },MoreExecutors.sameThreadExecutor());
+
+        Thread.sleep(5*1000);
+
+        pool.shutdown();
+    }
+
 }
