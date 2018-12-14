@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
+
 @ImportResource(locations={"classpath:spring/spring.xml"})
 @SpringBootApplication
 @EnableScheduling

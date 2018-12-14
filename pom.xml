@@ -257,7 +257,11 @@
             </exclusions>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.20.0-GA</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
         <dependency>
@@ -397,6 +401,14 @@
             </exclusions>
             <version>2.9.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.6</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-pool -->
         <dependency>
