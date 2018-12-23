@@ -41,7 +41,7 @@ public class TestTask {
     @Qualifier("topicDestination")
     private Destination topicDestination;
 
-    @Scheduled(cron = "0 */1 * * * ?")
+    //@Scheduled(cron = "0 */1 * * * ?")
     //@Scheduled(fixedRate = 3000)
     public void testSend() {
 
