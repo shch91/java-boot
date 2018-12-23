@@ -1,5 +1,6 @@
 package com.ldy.shch91.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
@@ -13,6 +14,7 @@ import java.util.concurrent.Callable;
  *
  **/
 @RestController
+@Slf4j
 public class AsyncController {
  
     private BlockingQueue<DeferredResult<String>> blockingQueue = new ArrayBlockingQueue(1024);
