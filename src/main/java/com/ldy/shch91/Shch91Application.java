@@ -87,7 +87,7 @@ public class Shch91Application {
     @Bean
     @Qualifier(value = "topicExchange")
     TopicExchange exchange() {
-        return new TopicExchange("exchange");
+        return new TopicExchange("topicExchange");
     }
 
     @Bean
