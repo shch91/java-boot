@@ -2,11 +2,13 @@ package com.ldy.shch91.rabbitMq;
 
 import java.util.Date;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class HelloSender1 {
 
     @Autowired

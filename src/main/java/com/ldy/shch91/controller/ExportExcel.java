@@ -3,6 +3,7 @@ package com.ldy.shch91.controller;
 import com.ldy.shch91.daoentity.Salary;
 import com.ldy.shch91.mapper.employees.SalaryMapper;
 import com.ldy.shch91.util.ExcelUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +21,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/export")
+@Slf4j
 public class ExportExcel {
-
-
-    private  static final Logger logger= LoggerFactory.getLogger(HelloController.class);
 
     @Resource
     SalaryMapper salaryMapper;

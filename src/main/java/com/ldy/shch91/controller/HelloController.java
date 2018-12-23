@@ -12,9 +12,8 @@ import com.ldy.shch91.mapper.sakila.ActorMapper;
 import com.ldy.shch91.task.AsyncTask;
 import com.ldy.shch91.util.readResource.ReadResource;
 import com.ldy.shch91.zk.ZkCuratorListener;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
-import javax.jms.Destination;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -33,9 +31,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 
 @RestController
+@Slf4j
 public class HelloController {
-
-    private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
@@ -76,7 +73,7 @@ public class HelloController {
 
         Actor actor = actorMapper.select(4);
         zkCuratorListener.nodeCache("/shch91");
-        logger.info(JSON.toJSONString(actor));
+        log.info(JSON.toJSONString(actor));
 
     }
 
@@ -86,7 +83,7 @@ public class HelloController {
         Actor actor = actorMapper.select(23);
 
 
-        logger.info(JSON.toJSONString(actor));
+        log.info(JSON.toJSONString(actor));
 
         actor.setLastName("shch91");
         actorMapper.insertOrUpdate(actor);
@@ -108,7 +105,7 @@ public class HelloController {
 
         async.dotask();
 
-        logger.info("获取演员id", actor.toString());
+        log.info("获取演员id", actor.toString());
         return actor;
     }
 
@@ -120,7 +117,7 @@ public class HelloController {
 
         Vector ver = new Vector<String>();
         Actor actor = actorMapper.select(32);
-        logger.info(JSON.toJSONString(actor));
+        log.info(JSON.toJSONString(actor));
         redisTemplate.opsForValue().set("userToJson", JSON.toJSONString(actor));
 
 
