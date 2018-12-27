@@ -16,4 +16,5 @@ public class TestTask {
         log.info("task runed");
     }
 
+    private static final String test="HHHHH";
 }
