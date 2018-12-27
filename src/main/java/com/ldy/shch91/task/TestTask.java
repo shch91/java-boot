@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestTask {
 
-  private static final String revert="dasfdsafdsas";
+
 
     //定义每三秒执行任务
     //@Scheduled(fixedRate = 3000)
