@@ -1,0 +1,4 @@
+启动MySQL命令
+    mysql.server start
+
+    
