@@ -48,3 +48,8 @@
     dataLength 节点数据的字节数.
 
     numChildren 子节点个数.
+
+
+
+   终端连接命令
+   zkCli -server localhost:2181

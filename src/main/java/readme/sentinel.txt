@@ -63,7 +63,7 @@
     redis-sentinel /usr/local/etc/redis/redis-sentinel2.conf &
     redis-sentinel /usr/local/etc/redis/redis-sentinel3.conf &
 
-#连接
+#客户端连接连接
     redis-cli -p 26379
     redis-cli -p 26380
     redis-cli -p 26381
