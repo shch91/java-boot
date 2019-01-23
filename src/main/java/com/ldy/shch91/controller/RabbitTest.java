@@ -18,4 +18,8 @@ public class RabbitTest {
     public void hello() {
         helloSender1.send();
     }
+
+    public static void main(String[] args) {
+        System.out.println(Integer.SIZE);
+    }
 }
