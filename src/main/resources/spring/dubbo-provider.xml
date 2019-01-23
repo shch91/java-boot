@@ -15,9 +15,9 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
     <!-- service implementation, as same as regular local bean -->
-    <bean id="demoService" class="org.apache.dubbo.demo.provider.DemoServiceImpl"/>
+    <bean id="demoService" class="com.ldy.shch91.remote.DemoServiceImpl"/>
 
     <!-- declare the service interface to be exported -->
-    <dubbo:service interface="org.apache.dubbo.demo.DemoService" ref="demoService"/>
+    <dubbo:service interface="com.ldy.shch91.remote.DemoService" ref="demoService"/>
 
 </beans>
