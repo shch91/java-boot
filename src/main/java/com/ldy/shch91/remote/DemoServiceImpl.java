@@ -16,7 +16,7 @@
  */
 package com.ldy.shch91.remote;
 
-import org.apache.dubbo.rpc.RpcContext;
+import com.alibaba.dubbo.rpc.RpcContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

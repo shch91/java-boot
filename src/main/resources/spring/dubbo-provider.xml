@@ -7,9 +7,9 @@
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
     <!-- provider's application name, used for tracing dependency relationship -->
-    <dubbo:application name="demo-provider"/>
+    <dubbo:application name="demo"/>
 
-    <dubbo:registry address="zookeeper://192.168.0.104:2181" />
+    <dubbo:registry address="zookeeper://localhost:2181" />
 
     <!-- use dubbo protocol to export service on port 20880 -->
     <dubbo:protocol name="dubbo" port="20880" />
