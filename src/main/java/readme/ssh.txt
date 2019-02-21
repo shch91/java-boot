@@ -1,0 +1,1 @@
+ssh jingjiniao@jump.corp.yiran.com

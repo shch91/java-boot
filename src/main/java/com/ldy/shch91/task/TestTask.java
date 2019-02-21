@@ -23,7 +23,7 @@ public class TestTask {
     private static  final Random rand=new Random();
     //定义每三秒执行任务
     @Scheduled(fixedRate = 3000)
-    @Scheduled(cron="0 */1 * * * ?")
+    //@Scheduled(cron="0 */1 * * * ?")
     public void reportCurrentTime() {
         log.info("task runed");
         Integer a=rand.nextInt(134321);
