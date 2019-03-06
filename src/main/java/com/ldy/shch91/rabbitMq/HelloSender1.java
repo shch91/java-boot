@@ -3,7 +3,6 @@ package com.ldy.shch91.rabbitMq;
 import java.util.Date;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.time.DateUtils;
 import org.assertj.core.util.DateUtil;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
