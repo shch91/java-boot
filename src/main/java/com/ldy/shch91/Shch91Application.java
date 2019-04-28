@@ -16,11 +16,13 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
-@ImportResource(locations={"classpath:spring/spring.xml"})
-@SpringBootApplication
-@EnableScheduling
-@EnableCaching
+
+
 @EnableAsync
+@EnableCaching
+@EnableScheduling
+@SpringBootApplication
+@ImportResource(locations={"classpath:spring/spring.xml"})
 public class Shch91Application {
 
     private static final String SS="test";
