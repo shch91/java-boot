@@ -1,8 +1,9 @@
 package shch91.repo.mapper.sakila;
 
-import com.ldy.shch91.daoentity.Actor;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import shch91.repo.daoentity.Actor;
 
 @Mapper
 public interface ActorMapper {

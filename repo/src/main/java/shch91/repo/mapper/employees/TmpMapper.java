@@ -1,7 +1,7 @@
 package shch91.repo.mapper.employees;
 
-import com.ldy.shch91.daoentity.Salary;
 import org.apache.ibatis.annotations.Mapper;
+import shch91.repo.daoentity.Salary;
 
 import java.util.List;
 
