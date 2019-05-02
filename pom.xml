@@ -8,7 +8,17 @@
     <groupId>com.ldy</groupId>
     <artifactId>shch91</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+
+        <module>common</module>
+        <module>repo</module>
+
+        <module>service</module>
+        <module>app</module>
+
+
+    </modules>
+    <packaging>pom</packaging>
 
     <name>shch91</name>
     <description>Demo project for Spring Boot</description>

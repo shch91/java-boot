@@ -1,4 +1,0 @@
-启动MySQL命令
-    mysql.server start
-
-brew services start mysql
