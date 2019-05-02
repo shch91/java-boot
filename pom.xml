@@ -14,6 +14,7 @@
         <module>repo</module>
         <module>service</module>
         <module>app</module>
+        <module>inter</module>
 
     </modules>
     <packaging>pom</packaging>

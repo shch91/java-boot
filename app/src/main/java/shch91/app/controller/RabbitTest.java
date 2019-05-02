@@ -1,10 +1,9 @@
 package shch91.app.controller;
-import rabbitMq.HelloSender1;
+import shch91.service.rabbitMq.HelloSender1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 
 @RestController

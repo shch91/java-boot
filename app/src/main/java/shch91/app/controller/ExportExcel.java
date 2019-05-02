@@ -1,17 +1,14 @@
 package shch91.app.controller;
 
-import com.ldy.shch91.daoentity.Salary;
-import com.ldy.shch91.mapper.employees.SalaryMapper;
-import com.ldy.shch91.util.ExcelUtil;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import shch91.app.export.ExcelUtil;
+import shch91.repo.daoentity.Salary;
+import shch91.repo.mapper.employees.SalaryMapper;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,9 +16,10 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/export")
-@Slf4j
+
 public class ExportExcel {
 
     @Resource

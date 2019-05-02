@@ -9,11 +9,11 @@
     </settings>
 
     <typeAliases>
-        <package name="com.ldy.shch91.daoentity"/>
+        <package name="shch91.repo.daoentity"/>
     </typeAliases>
 
     <mappers>
-        <!--<package name="com.ldy.shch91.mapper"/>-->
+        <package name="shch91.repo.mapper"/>
     </mappers>
 
 </configuration>

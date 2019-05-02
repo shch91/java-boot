@@ -16,7 +16,7 @@
 
     <!--Mybatis 注解@mapper-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ldy.shch91.mapper"></property>
+        <property name="basePackage" value="shch91.repo.mapper.sakila"></property>
         <property name="sqlSessionFactoryBeanName" value="sqlsessionFactoryBean"></property>
     </bean>
 

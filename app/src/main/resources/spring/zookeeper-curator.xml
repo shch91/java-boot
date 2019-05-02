@@ -31,7 +31,7 @@
     </bean>
 
     <!--应用场景一：查看当前Client是不是主机-->
-    <bean id="leaderDispatch" class="zk.LeaderDispatch" init-method="call">
+    <bean id="leaderDispatch" class="shch91.service.zk.LeaderDispatch" init-method="call">
         <constructor-arg index="0" ref="curatorFramework" />
         <constructor-arg index="1" value="/super" />
     </bean>
