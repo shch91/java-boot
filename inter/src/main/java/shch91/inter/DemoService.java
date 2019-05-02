@@ -16,8 +16,10 @@
  */
 package shch91.inter;
 
+import java.util.concurrent.CompletableFuture;
+
 public interface DemoService {
 
-    String sayHello(String name);
+    CompletableFuture<String> sayHello(String name);
 
 }

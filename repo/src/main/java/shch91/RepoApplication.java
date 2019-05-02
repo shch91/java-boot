@@ -1,4 +1,4 @@
-package shch91.repo;
+package shch91;
 
 import org.springframework.context.annotation.ComponentScan;
 

@@ -22,14 +22,23 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import shch91.inter.DemoService;
 
+import java.util.concurrent.CompletableFuture;
+
 @Slf4j
 @Component("demoService")
 public class DemoServiceImpl implements DemoService {
 
     @Override
-    public String sayHello(String name) {
+    public CompletableFuture<String> sayHello(String name) {
+        try {
+            Thread.sleep(50000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         log.info("Hello " + name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
-        return "Hello " + name + ", response from provider: " + RpcContext.getContext().getLocalAddress();
+
+        return CompletableFuture.supplyAsync(() -> "Hello " + name );
     }
 
 }
