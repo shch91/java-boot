@@ -1,5 +1,5 @@
 package shch91.app.controller;
-import shch91.service.rabbitMq.HelloSender1;
+import shch91.service.rabbitMq.ProducerRabbitMq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,14 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class RabbitTest {
     
     @Autowired
-    private HelloSender1 helloSender1;
+    private ProducerRabbitMq producerRabbitMq;
 
     @PostMapping("/hello")
     public void hello() {
-        helloSender1.send();
+        producerRabbitMq.send();
     }
 
-    public static void main(String[] args) {
-        System.out.println(Integer.SIZE);
-    }
 }

@@ -70,28 +70,28 @@ public class KafkaConfig {
 
     //实际执行消息消费的类，用于处理消息，做一些业务逻辑
     @Bean
-    public MyMessageListener myMessageListener(){
+    public MyMessageListener myMessageListener() {
         return new MyMessageListener();
     }
 
     //消费者容器配置信息
     @Bean
-    public ContainerProperties containerProperties(){
-        Pattern topicPattern = Pattern.compile(".*[tT]opic.*"); //匹配满足正则的topic
+    public ContainerProperties containerProperties() {
+        Pattern topicPattern = Pattern.compile("kafka"); //匹配满足正则的topic
         ContainerProperties containerProperties = new ContainerProperties(topicPattern);//订阅满足正则表达式的topic
-     containerProperties.setMessageListener(myMessageListener());//订阅的topic的消息用myMessageListener去处理
+        containerProperties.setMessageListener(myMessageListener());//订阅的topic的消息用myMessageListener去处理
         return containerProperties;
     }
 
     @Bean
-    public KafkaMessageListenerContainer<String, String> kafkaMessageListenerContainer(){
-        return new KafkaMessageListenerContainer(consumerFactory(),containerProperties());
+    public KafkaMessageListenerContainer<String, String> kafkaMessageListenerContainer() {
+        return new KafkaMessageListenerContainer(consumerFactory(), containerProperties());
     }
 
 
     /* --------------kafka template configuration-----------------**/
     @Bean
-    public KafkaTemplate<String,String> kafkaTemplate() {
+    public KafkaTemplate<String, String> kafkaTemplate() {
         KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
         kafkaTemplate.setDefaultTopic("defaultTopic");
         return kafkaTemplate;

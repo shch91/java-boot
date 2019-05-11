@@ -6,7 +6,7 @@ import org.springframework.kafka.listener.MessageListener;
 
 @Slf4j
 public class MyMessageListener implements MessageListener<String, String> {
-  
+
     @Override//此方法处理消息
     public void onMessage(ConsumerRecord<String, String> data) {
         String topic = data.topic();//消费的topic

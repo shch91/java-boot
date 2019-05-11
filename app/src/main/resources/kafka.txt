@@ -1,0 +1,6 @@
+1、切换目录
+
+ cd   /usr/local/Cellar/kafka/2.1.0/bin
+
+创建tiopic
+ ./kafka-topics --zookeeper localhost:2181 --create --topic t_cdr --partitions 30  --replication-factor 2
