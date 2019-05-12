@@ -43,5 +43,6 @@
 
     <import resource="dubbo-provider.xml"/>
 
+    <import resource="dubbo-consumer.xml"/>
 
 </beans>
