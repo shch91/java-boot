@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import shch91.repo.daoentity.Actor;
 import shch91.repo.daoentity.Salary;
 import shch91.repo.mapper.employees.SalaryMapper;
-import shch91.repo.mapper.employees.TmpMapper;
 import shch91.repo.mapper.sakila.ActorMapper;
 import shch91.service.task.AsyncTask;
 import shch91.service.zk.ZkCuratorListener;
@@ -43,8 +42,6 @@ public class HelloController {
     @Resource
     private SalaryMapper salaryMapper;
 
-    @Resource
-    private TmpMapper tmpMapper;
 
     @Autowired
     ObjectMapper objectMapper;
@@ -125,35 +122,5 @@ public class HelloController {
         return 1 / 0;
     }
 
-    @RequestMapping("/kk")
-    public void test() {
-        List<Salary> res = salaryMapper.getAll();
-        tmpMapper.add(res.get(0));
-        List<List<Salary>> part = Lists.partition(res, 20000);
-
-        for (List<Salary> item : part) {
-            threadPoolTaskExecutor.execute(new CacheTask(item));
-        }
-        return;
-    }
-
-    private class CacheTask implements Runnable {
-
-
-        public CacheTask(List<Salary> list) {
-            salaryList = list;
-        }
-
-        List<Salary> salaryList;
-
-        @Override
-        public void run() {
-            batchAdd(salaryList);
-        }
-    }
-
-    private void batchAdd(List<Salary> list) {
-        tmpMapper.addBatch(list);
-    }
 
 }
