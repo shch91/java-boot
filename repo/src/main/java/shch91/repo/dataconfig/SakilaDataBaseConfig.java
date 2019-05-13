@@ -1,7 +1,8 @@
 package shch91.repo.dataconfig;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -11,18 +12,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-
-@Data
+@Setter
+@Getter
+@Component
 @Configuration
 @ConfigurationProperties(prefix = "back.datasource.druid")
 @MapperScan(basePackages = SakilaDataBaseConfig.PACKAGE, sqlSessionFactoryRef = "backSqlSessionFactory")
 public class SakilaDataBaseConfig {
 
     /**
-     * dao层的包路径
+     * dao层的包路径   Invalid bound statement (not found): shch91.repo.mapper.sakila.ActorMapper.select
      */
     static final String PACKAGE = "shch91.repo.mapper.sakila";
 

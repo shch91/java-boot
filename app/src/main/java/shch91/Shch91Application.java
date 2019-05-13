@@ -3,6 +3,7 @@ package shch91;
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -20,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableCaching
 @EnableScheduling
 @EnableConfigurationProperties
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 @ImportResource(locations={"classpath:spring/spring.xml"})
 @Import(value = {ServiceApplication.class})
 public class Shch91Application {
