@@ -1,9 +1,12 @@
 package shch91.repo.daoentity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
-@Data
+@Setter
+@Getter
 public class Salary {
 
     public  int empNo;

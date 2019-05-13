@@ -4,6 +4,8 @@ import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,12 +19,11 @@ import org.springframework.web.client.RestTemplate;
 @EnableAsync
 @EnableCaching
 @EnableScheduling
-@SpringBootApplication
+@EnableConfigurationProperties
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @ImportResource(locations={"classpath:spring/spring.xml"})
 @Import(value = {ServiceApplication.class})
 public class Shch91Application {
-
-    private static final String SS="test";
 
     public static void main(String[] args) {
         SpringApplication.run(Shch91Application.class, args);
