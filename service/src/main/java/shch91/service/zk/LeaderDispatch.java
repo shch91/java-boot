@@ -1,14 +1,13 @@
 package shch91.service.zk;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
 import org.apache.curator.framework.recipes.leader.LeaderSelectorListenerAdapter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+
+@Slf4j
 public class LeaderDispatch  {
-
-    private static Logger logger = LoggerFactory.getLogger(LeaderDispatch.class);
 
 
     private boolean leader = false;
@@ -35,7 +34,7 @@ public class LeaderDispatch  {
                     @Override
                     public void takeLeadership(CuratorFramework curatorFramework)
                             throws Exception {
-                        logger.info("成为Master: leader 选择成功！！！");
+                        log.info("成为Master: leader 选择成功！！！");
                         leader = true;
                         while (true) {
                             Thread.sleep(Integer.MAX_VALUE);

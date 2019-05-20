@@ -1,20 +1,17 @@
 package shch91.service.zk;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.NodeCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.framework.recipes.cache.TreeCache;
 import org.apache.zookeeper.CreateMode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
+@Slf4j
 @Component
 public class ZkCuratorListener {
-
-    private static Logger logger = LoggerFactory.getLogger(ZkCuratorListener.class);
 
     @Autowired
     protected CuratorFramework curator;
@@ -25,9 +22,9 @@ public class ZkCuratorListener {
         cache.start(true);
         //只会监听节点的创建和修改，删除不会监听
         cache.getListenable().addListener(() -> {
-            logger.info("路径：" + cache.getCurrentData().getPath());
-            logger.info("数据：" + new String(cache.getCurrentData().getData()));
-            logger.info("状态：" + cache.getCurrentData().getStat());
+            log.info("路径：" + cache.getCurrentData().getPath());
+            log.info("数据：" + new String(cache.getCurrentData().getData()));
+            log.info("状态：" + cache.getCurrentData().getStat());
         });
 
 
@@ -51,15 +48,15 @@ public class ZkCuratorListener {
         childrenCache.getListenable().addListener((framework, event) -> {
             switch (event.getType()) {
                 case CHILD_ADDED:
-                    logger.info("CHILD_ADDED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
+                    log.info("CHILD_ADDED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
                             new String(event.getData().getData()) + "，状态：" + event.getData().getStat());
                     break;
                 case CHILD_UPDATED:
-                    logger.info("CHILD_UPDATED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
+                    log.info("CHILD_UPDATED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
                             new String(event.getData().getData()) + "，状态：" + event.getData().getStat());
                     break;
                 case CHILD_REMOVED:
-                    logger.info("CHILD_REMOVED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
+                    log.info("CHILD_REMOVED，类型：" + event.getType() + "，路径：" + event.getData().getPath() + "，数据：" +
                             new String(event.getData().getData()) + "，状态：" + event.getData().getStat());
                     break;
                 default:
@@ -83,15 +80,15 @@ public class ZkCuratorListener {
         treeCache.getListenable().addListener((curatorFramework, treeCacheEvent) -> {
             switch (treeCacheEvent.getType()) {
                 case NODE_ADDED:
-                    logger.info("NODE_ADDED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
+                    log.info("NODE_ADDED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
                             + "，状态：" + treeCacheEvent.getData().getStat());
                     break;
                 case NODE_UPDATED:
-                    logger.info("NODE_UPDATED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
+                    log.info("NODE_UPDATED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
                             + "，状态：" + treeCacheEvent.getData().getStat());
                     break;
                 case NODE_REMOVED:
-                    logger.info("NODE_REMOVED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
+                    log.info("NODE_REMOVED：路径：" + treeCacheEvent.getData().getPath() + "，数据：" + new String(treeCacheEvent.getData().getData())
                             + "，状态：" + treeCacheEvent.getData().getStat());
                     break;
                 default:
