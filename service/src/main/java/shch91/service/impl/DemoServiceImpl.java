@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Component;
 import shch91.inter.DemoService;
+import shch91.request.User;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -29,16 +30,15 @@ import java.util.concurrent.CompletableFuture;
 public class DemoServiceImpl implements DemoService {
 
     @Override
-    public CompletableFuture<String> sayHello(String name) {
-        try {
-            Thread.sleep(50000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public User sayHello(String name) {
 
         log.info("Hello " + name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
 
-        return CompletableFuture.supplyAsync(() -> "Hello " + name );
+        User u=new User();
+        u.setName("shch91");
+        u.setAge(678);
+        u.setAddress("fsfdsafas");
+        return  u;
     }
 
 }
