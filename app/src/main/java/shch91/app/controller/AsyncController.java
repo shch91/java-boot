@@ -38,7 +38,7 @@ public class AsyncController {
      * @throws InterruptedException
      */
  
-    @GetMapping("take")
+    @GetMapping("/take")
     public void take() throws InterruptedException {
         DeferredResult<String> result = blockingQueue.take();
         result.setResult("route");
