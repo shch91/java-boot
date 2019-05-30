@@ -18,8 +18,12 @@ package shch91.inter;
 
 import shch91.request.User;
 
+import java.util.Set;
+
 public interface DemoService {
 
     User sayHello(String name);
+
+    Set<Integer> getSetInteger();
 
 }

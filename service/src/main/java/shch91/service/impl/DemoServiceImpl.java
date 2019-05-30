@@ -23,6 +23,8 @@ import org.springframework.stereotype.Component;
 import shch91.inter.DemoService;
 import shch91.request.User;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @Slf4j
@@ -39,6 +41,15 @@ public class DemoServiceImpl implements DemoService {
         u.setAge(678);
         u.setAddress("fsfdsafas");
         return  u;
+    }
+
+    @Override
+    public Set<Integer> getSetInteger() {
+        Set<Integer> result=new HashSet<Integer>();
+        result.add(1);
+        result.add(34);
+        return  result;
+
     }
 
 }
