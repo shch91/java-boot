@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import shch91.inter.DemoService;
 import shch91.repo.daoentity.Actor;
 import shch91.repo.daoentity.Salary;
 import shch91.repo.mapper.employees.SalaryMapper;
@@ -25,6 +26,7 @@ import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -41,6 +43,9 @@ public class HelloController {
 
     @Resource
     private SalaryMapper salaryMapper;
+
+    @Autowired
+    private DemoService demoService;
 
 
     @Autowired
@@ -103,18 +108,9 @@ public class HelloController {
     }
 
     @RequestMapping("/first")
-    public String first() {
+    public Set<Integer> first() {
 
-        //readResource.getResourceByClassOrClassLoader();
-        boolean fda = Strings.isNullOrEmpty("");
-
-        Vector ver = new Vector<String>();
-        Actor actor = actorMapper.select(32);
-        log.info(JSON.toJSONString(actor));
-        redisTemplate.opsForValue().set("userToJson", JSON.toJSONString(actor));
-
-
-        return "first controller";
+         return demoService.getSetInteger();
     }
 
     @RequestMapping("/doError")
