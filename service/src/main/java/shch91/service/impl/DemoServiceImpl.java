@@ -18,14 +18,13 @@ package shch91.service.impl;
 
 import com.alibaba.dubbo.rpc.RpcContext;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.stereotype.Component;
 import shch91.inter.DemoService;
 import shch91.request.User;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
+
 
 @Slf4j
 @Component("demoService")
