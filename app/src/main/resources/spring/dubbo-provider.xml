@@ -19,7 +19,11 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
 
-    <!-- declare the service interface to be exported -->
+    <!-- 具体调用 -->
     <dubbo:service interface="shch91.inter.DemoService" ref="demoService"/>
+
+
+    <!-- 泛型调用 -->
+    <dubbo:service interface="com.alibaba.dubbo.rpc.service.GenericService" ref="genericService" />
 
 </beans>
