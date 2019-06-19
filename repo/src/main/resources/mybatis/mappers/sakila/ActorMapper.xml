@@ -4,8 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shch91.repo.mapper.sakila.ActorMapper">
 
-    <!-- 开启基于redis的二级缓存 -->
-    <!--<cache type="RedisCache"/>-->
+
     <sql id="allColumn">
         actor_id ,first_name,last_name,last_update
     </sql>

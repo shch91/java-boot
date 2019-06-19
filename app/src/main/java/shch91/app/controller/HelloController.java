@@ -34,9 +34,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @RestController
 public class HelloController {
 
-    private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
-
-    private static final LocalDate beginDate = LocalDate.of(2018, 1, 1);
 
     @Resource
     private ActorMapper actorMapper;
