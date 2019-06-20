@@ -23,6 +23,8 @@ import shch91.service.task.AsyncTask;
 import shch91.service.zk.ZkCuratorListener;
 
 import javax.annotation.Resource;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -114,6 +116,5 @@ public class HelloController {
     public Object error() {
         return 1 / 0;
     }
-
 
 }
