@@ -17,11 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+/**
+ * @author shch
+ */
 @Configuration
 @EnableKafka
 public class KafkaConfig {
 
-    /* --------------producer configuration-----------------**/
+
     @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
@@ -40,7 +43,6 @@ public class KafkaConfig {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
-    /* --------------consumer configuration-----------------**/
     @Bean
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
@@ -69,18 +71,17 @@ public class KafkaConfig {
     }
 
 
-    //实际执行消息消费的类，用于处理消息，做一些业务逻辑
     @Bean
     public MyMessageListener myMessageListener() {
         return new MyMessageListener();
     }
 
-    //消费者容器配置信息
+
     @Bean
     public ContainerProperties containerProperties() {
-        Pattern topicPattern = Pattern.compile("kafka"); //匹配满足正则的topic
-        ContainerProperties containerProperties = new ContainerProperties(topicPattern);//订阅满足正则表达式的topic
-        containerProperties.setMessageListener(myMessageListener());//订阅的topic的消息用myMessageListener去处理
+        Pattern topicPattern = Pattern.compile("kafka");
+        ContainerProperties containerProperties = new ContainerProperties(topicPattern);
+        containerProperties.setMessageListener(myMessageListener());
         return containerProperties;
     }
 
@@ -89,8 +90,6 @@ public class KafkaConfig {
         return new KafkaMessageListenerContainer(consumerFactory(), containerProperties());
     }
 
-
-    /* --------------kafka template configuration-----------------**/
     @Bean
     public KafkaTemplate<String, String> kafkaTemplate() {
         KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
