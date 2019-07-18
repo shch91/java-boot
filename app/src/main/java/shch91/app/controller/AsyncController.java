@@ -12,7 +12,8 @@ import java.util.concurrent.Callable;
 /**
  * 异步任务的控制器
  *
- **/
+ *
+ * @author shch*/
 @RestController
 @Slf4j
 public class AsyncController {

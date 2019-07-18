@@ -11,8 +11,6 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
-
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -20,6 +18,7 @@ import java.util.regex.Pattern;
 /**
  * @author shch
  */
+
 @Configuration
 @EnableKafka
 public class KafkaConfig {
