@@ -104,21 +104,21 @@ public class EmployeesDataBaseConfig {
         return druid;
     }
 
-    // 创建该数据源的事务管理
+
     @Primary
     @Bean(name = "primaryTransactionManager")
     public DataSourceTransactionManager primaryTransactionManager() throws SQLException {
         return new DataSourceTransactionManager(primaryDataSource());
     }
 
-    //创建Mybatis的连接会话工厂实例
+
     @Primary
     @Bean(name = "primarySqlSessionFactory")
     public SqlSessionFactory primarySqlSessionFactory(@Qualifier("primaryDataSource") DataSource primaryDataSource) throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(primaryDataSource);  // 设置数据源bean
+        sessionFactory.setDataSource(primaryDataSource);
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources(EmployeesDataBaseConfig.MAPPER_LOCATION));  // 设置mapper文件路径
+                .getResources(EmployeesDataBaseConfig.MAPPER_LOCATION));
 
         return sessionFactory.getObject();
     }
