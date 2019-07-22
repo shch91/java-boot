@@ -13,7 +13,6 @@ import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 /**
  * @author shch
@@ -78,8 +77,8 @@ public class KafkaConfig {
 
     @Bean
     public ContainerProperties containerProperties() {
-        Pattern topicPattern = Pattern.compile("kafka");
-        ContainerProperties containerProperties = new ContainerProperties(topicPattern);
+
+        ContainerProperties containerProperties = new ContainerProperties("kafka");
         containerProperties.setMessageListener(myMessageListener());
         return containerProperties;
     }

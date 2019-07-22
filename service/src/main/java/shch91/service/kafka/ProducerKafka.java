@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * @author shch
+ * @date 2019/03/24
+ */
 @Slf4j
 @Component
 public class ProducerKafka {
