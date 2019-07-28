@@ -32,6 +32,9 @@ import java.util.Set;
 import java.util.Vector;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * @author shch
+ */
 @Slf4j
 @RestController
 public class HelloController {
