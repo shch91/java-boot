@@ -19,6 +19,7 @@ package shch91.service.impl;
 import com.alibaba.dubbo.rpc.RpcContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import shch91.enums.Type;
 import shch91.inter.DemoService;
 import shch91.request.User;
 
@@ -31,9 +32,9 @@ import java.util.Set;
 public class DemoServiceImpl implements DemoService {
 
     @Override
-    public User sayHello(String name) {
+    public User sayHello(Type type) {
 
-        log.info("Hello " + name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
+        log.info("Hello " + type.name() + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
 
         User u=new User();
         u.setName("shch91");
