@@ -19,7 +19,7 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>Maven</name>
+    <name>java-boot</name>
     <description>Demo project for Spring Boot</description>
 
 
