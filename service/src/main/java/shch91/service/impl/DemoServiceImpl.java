@@ -17,7 +17,11 @@
 package shch91.service.impl;
 
 import com.alibaba.dubbo.rpc.RpcContext;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import net.minidev.json.JSONUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import shch91.enums.Type;
 import shch91.inter.DemoService;
@@ -31,10 +35,16 @@ import java.util.Set;
 @Component("demoService")
 public class DemoServiceImpl implements DemoService {
 
+
+    @Autowired
+    ObjectMapper objectMapper;
+
     @Override
     public User sayHello(Type type) {
 
-        log.info("Hello " + type.name() + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
+
+        log.info("RpcContext={}", RpcContext.getContext().getUrl());
+
 
         User u=new User();
         u.setName("shch91");
