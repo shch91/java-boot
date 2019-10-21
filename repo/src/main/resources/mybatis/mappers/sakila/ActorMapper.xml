@@ -17,11 +17,11 @@
     <!--</resultMap>-->
 
     <select id="select" resultType="shch91.repo.daoentity.Actor">
-       SELECT * FROM actor WHERE actor_id = #{actorId} LIMIT 1
+       SELECT * FROM actor WHERE actor_id = #{actorId}
    </select>
 
     <update id="update" parameterType="shch91.repo.daoentity.Actor" flushCache="true">
-       UPDATE actor SET first_name = #{firstName}, last_name = #{lastName} WHERE actor_id = #{actorId} LIMIT 1
+       UPDATE actor SET first_name = #{firstName}, last_name = #{lastName} WHERE actor_id = #{actorId}
    </update>
 
     <insert id="insert" useGeneratedKeys="true" parameterType="shch91.repo.daoentity.Actor">

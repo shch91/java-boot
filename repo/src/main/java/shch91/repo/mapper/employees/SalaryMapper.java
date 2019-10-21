@@ -2,6 +2,7 @@ package shch91.repo.mapper.employees;
 
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import shch91.repo.daoentity.Salary;
 import java.util.List;
 
@@ -16,4 +17,8 @@ public interface SalaryMapper {
      List<String> allEmpNo();
 
      List<Salary> getAll();
+
+     int update(Salary salary);
+
+     Salary getById(@Param("empNo") int empNo,@Param("salary")int salary);
 }

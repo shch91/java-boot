@@ -21,6 +21,13 @@
         where  emp_no=#{empNo}
     </select>
 
+
+    <select id="getById"  resultType="shch91.repo.daoentity.Salary">
+        select <include refid="allColumn"/>
+        from  salaries
+        where  emp_no=#{empNo} and salary=#{salary}
+    </select>
+
     <select id="allEmpNo" >
         select  distinct(emp_no)
         from  salaries
@@ -31,4 +38,10 @@
         from salaries
 
     </select>
+
+    <update id="update" parameterType="shch91.repo.daoentity.Salary">
+       UPDATE salaries SET salary = #{salary},emp_no=#{empNo}
+        WHERE  emp_no=#{empNo} and salary=#{salary} and from_date=#{fromDate} and to_date=#{toDate}
+   </update>
+
 </mapper>
