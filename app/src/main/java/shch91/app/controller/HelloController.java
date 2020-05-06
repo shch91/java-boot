@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -12,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import shch91.inter.DemoService;
 import shch91.repo.daoentity.Actor;
 import shch91.repo.mapper.employees.SalaryMapper;
 import shch91.repo.mapper.sakila.ActorMapper;
@@ -21,6 +21,8 @@ import shch91.service.zk.ZkCuratorListener;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 
@@ -38,8 +40,6 @@ public class HelloController {
     @Resource
     private SalaryMapper salaryMapper;
 
-    @Autowired
-    private DemoService demoService;
 
 
     @Autowired
@@ -101,15 +101,11 @@ public class HelloController {
         return actor;
     }
 
-    @RequestMapping("/first")
-    public Set<Integer> first() {
-
-         return demoService.getSetInteger();
-    }
 
     @RequestMapping("/doError")
     public Object error() {
         return 1 / 0;
     }
+
 
 }
