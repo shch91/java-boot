@@ -16,50 +16,16 @@
  */
 package shch91.service.impl;
 
-import com.alibaba.dubbo.rpc.RpcContext;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
-import net.minidev.json.JSONUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import shch91.enums.Type;
-import shch91.inter.DemoService;
-import shch91.request.User;
 
-import java.util.HashSet;
-import java.util.Set;
+import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.stereotype.Component;
+
 
 
 @Slf4j
 @Component("demoService")
-public class DemoServiceImpl implements DemoService {
+public class DemoServiceImpl {
 
-
-    @Autowired
-    ObjectMapper objectMapper;
-
-    @Override
-    public User sayHello(Type type) {
-
-
-        log.info("RpcContext={}", RpcContext.getContext().getUrl());
-
-
-        User u=new User();
-        u.setName("shch91");
-        u.setAge(678);
-        u.setAddress("fsfdsafas");
-        return  u;
-    }
-
-    @Override
-    public Set<Integer> getSetInteger() {
-        Set<Integer> result=new HashSet<Integer>();
-        result.add(1);
-        result.add(34);
-        return  result;
-
-    }
 
 }

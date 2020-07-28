@@ -22,7 +22,7 @@ import java.util.List;
 public class ExportExcel {
 
     @Resource
-    SalaryMapper salaryMapper;
+     SalaryMapper salaryMapper;
     /**
      * 导出报表
      * @return
