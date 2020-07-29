@@ -1,4 +1,4 @@
-package shch91.app;
+package shch91.app.algorithm;
 
 /**
  * @author shch
@@ -6,8 +6,9 @@ package shch91.app;
 public class Main {
     public static void main(String[] args) {
         //getAns(10000);
-        int []arr=new int[]{1,2,3};
-        perm(arr,0,3);
+        //int []arr=new int[]{1,2,3};
+        //perm(arr,0,3);
+        //System.out.println(string2int("1"));
     }
 
     /**
@@ -64,5 +65,20 @@ public class Main {
             swap(arr, i, k);
 
         }
+    }
+
+
+    public static  int  string2int(String str){
+        if(str==null ||str.length()==0){
+            return 0;
+        }
+        int ret=0;
+        int pos=1;
+        for(int k=str.length()-1;k>=0;k--){
+            int c=str.charAt(k)-'0';
+            ret=ret+pos*c;
+            pos*=10;
+        }
+        return ret;
     }
 }

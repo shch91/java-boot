@@ -10,8 +10,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>repo</artifactId>
-    <modules>
-        <module>common</module>
-    </modules>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.ldy</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
 
 </project>
