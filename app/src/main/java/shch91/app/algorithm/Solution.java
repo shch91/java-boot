@@ -6,18 +6,23 @@ import java.util.List;
 
 class Solution {
 
-    private static  LinkedList<String> temp = new LinkedList<>();
+    private static LinkedList<String> temp = new LinkedList<>();
 
     private static List<List<String>> result = new ArrayList<List<String>>();
 
     public static void main(String[] args) {
-        partition("a");
-        for (List<String> list : result) {
-            for (String it : list) {
-                System.out.print(it + "    ");
-            }
-            System.out.println();
-        }
+
+        // partition("a");
+        //for (List<String> list : result) {
+        //  for (String it : list) {
+        //    System.out.print(it + "    ");
+        //}
+        //System.out.println();
+        // }
+        Solution s = new Solution();
+        int[] nums = new int[]{3, 2, 1, 5, 6, 4};
+        int k = s.findKthLargest(nums, 5);
+        System.out.println(k);
     }
 
     public static List<List<String>> partition(String s) {
@@ -38,7 +43,7 @@ class Solution {
             if (isPalindrome(str, beg, end)) {
                 String tempStr = str.substring(beg, end + 1);
                 temp.addLast(tempStr);
-                traceBack(str, end+1);
+                traceBack(str, end + 1);
                 temp.removeLast();
             }
         }
@@ -53,5 +58,37 @@ class Solution {
         return true;
     }
 
+    public int findKthLargest(int[] nums, int k) {
+        return kth(nums, 0, nums.length - 1, k);
+    }
+
+    public int kth(int[] nums, int i, int j, int k) {
+        int cur = pos(nums, i, j);
+        if (k == j - cur + 1) {
+            return nums[cur];
+        } else if (j - cur + 1 > k) {
+            return kth(nums, cur + 1, j, k);
+        } else {
+            return kth(nums, i, cur - 1, k - (j - cur + 1));
+        }
+    }
+
+
+    public int pos(int[] nums, int i, int j) {
+
+        int pivot = nums[i];
+        while (i < j) {
+            while (j > i && nums[j] >= pivot) {
+                j--;
+            }
+            nums[i] = nums[j];
+            while (i < j && nums[i] <= pivot) {
+                i++;
+            }
+            nums[j] = nums[i];
+        }
+        nums[i] = pivot;
+        return i;
+    }
 
 }

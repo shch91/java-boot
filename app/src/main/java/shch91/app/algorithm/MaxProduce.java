@@ -7,7 +7,7 @@ public class MaxProduce {
         int[] nums = new int[]{1,2,3,4};
        p.productExceptSelf(nums);
 
-        System.out.println(66.0/10000);
+
     }
 
     public int maxProduct(int[] nums) {
