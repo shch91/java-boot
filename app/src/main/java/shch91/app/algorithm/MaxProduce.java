@@ -4,10 +4,15 @@ public class MaxProduce {
 
     public static void main(String[] args) {
         MaxProduce p = new MaxProduce();
-        int[] nums = new int[]{1,2,3,4};
-       p.productExceptSelf(nums);
+        int[] nums = new int[]{1, 2, 3, 4};
+        p.productExceptSelf(nums);
 
-
+        int[][] matrix = new int[][]{
+                {1, 5, 9},
+                {10, 11, 13},
+                {12, 13, 15}
+        };
+        System.out.println(p.kthSmallest(matrix,8));
     }
 
     public int maxProduct(int[] nums) {
@@ -26,38 +31,68 @@ public class MaxProduce {
     }
 
     public void rotate(int[] nums, int k) {
-        if(k%nums.length==0){
-           return;
+        if (k % nums.length == 0) {
+            return;
         }
-        int offset=k%nums.length;
-        while(offset>0){
-            int tmp=nums[nums.length-1];
-            for(int index=nums.length-2;index>=0;index--){
-                nums[index+1]=nums[index];
+        int offset = k % nums.length;
+        while (offset > 0) {
+            int tmp = nums[nums.length - 1];
+            for (int index = nums.length - 2; index >= 0; index--) {
+                nums[index + 1] = nums[index];
             }
-            nums[0]=tmp;
+            nums[0] = tmp;
             offset--;
         }
     }
 
     public int[] productExceptSelf(int[] nums) {
-         int [] front=new int[nums.length];
-         int [] back=new int[nums.length];
-         front[0]=back[nums.length-1]=1;
-        for(int i=0;i<nums.length;i++){
-            if(i>=1) {
-                front[i] =nums[i - 1]*front[i-1];
+        int[] front = new int[nums.length];
+        int[] back = new int[nums.length];
+        front[0] = back[nums.length - 1] = 1;
+        for (int i = 0; i < nums.length; i++) {
+            if (i >= 1) {
+                front[i] = nums[i - 1] * front[i - 1];
             }
         }
-        for(int j=nums.length-1;j>=0;j--){
-            if(j<nums.length-1) {
-                back[j] =nums[j+ 1]*back[j+1];
+        for (int j = nums.length - 1; j >= 0; j--) {
+            if (j < nums.length - 1) {
+                back[j] = nums[j + 1] * back[j + 1];
             }
         }
-        int []ret=new int[nums.length];
-        for(int k=0;k<nums.length;k++){
-            ret[k]=back[k]*front[k];
+        int[] ret = new int[nums.length];
+        for (int k = 0; k < nums.length; k++) {
+            ret[k] = back[k] * front[k];
         }
         return ret;
+    }
+
+
+    public int kthSmallest(int[][] matrix, int k) {
+        int row = matrix.length, col = matrix[0].length;
+        int left = matrix[0][0], right = matrix[row - 1][col - 1];
+        while (left < right) {
+            int value = (left + right) / 2;
+            int count=findLessOrEqlCount(matrix, value);
+            if(count<k){
+                left=value+1;
+            }else{
+                right=value;
+            }
+        }
+        return left;
+    }
+
+    public int findLessOrEqlCount(int[][] matrix, int value) {
+        int row = matrix.length, col = matrix[0].length;
+        int i = row - 1, j = 0, count = 0;
+        while (i >= 0 && j < col) {
+            if (matrix[i][j] <= value) {
+                count += i + 1;
+                j++;
+            } else {
+                i--;
+            }
+        }
+        return count;
     }
 }
