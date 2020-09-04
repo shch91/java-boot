@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-class Solution {
+class KthAndTraceBack {
 
     private static LinkedList<String> temp = new LinkedList<>();
 
@@ -19,7 +19,7 @@ class Solution {
         //}
         //System.out.println();
         // }
-        Solution s = new Solution();
+        KthAndTraceBack s = new KthAndTraceBack();
         int[] nums = new int[]{3, 2, 1, 5, 6, 4};
         int k = s.findKthLargest(nums, 5);
         System.out.println(k);
