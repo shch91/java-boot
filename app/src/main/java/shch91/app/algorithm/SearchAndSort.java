@@ -1,5 +1,8 @@
 package shch91.app.algorithm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SearchAndSort {
 
     public String largestNumber(int[] nums) {
@@ -100,12 +103,19 @@ public class SearchAndSort {
 
     public static void main(String[] args) {
         SearchAndSort t = new SearchAndSort();
-        int[] arr = new int[]{1, 2, 3, 4, 5, 6};
-
-        t.wiggleSort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
+        int[] arr = new int[]{5,2,6,1};
+        //System.out.println((3-2)>>1);
+        //System.out.println(t.findPeakElement(arr));
+        //int de = t.findDuplicate(arr);
+        //System.out.println(de);
+        List<Integer>s= t.countSmaller(arr);
+        for(Integer it:s){
+            System.out.println(it);
         }
+//        t.wiggleSort(arr);
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.print(arr[i]);
+//        }
     }
 
 
@@ -156,9 +166,9 @@ public class SearchAndSort {
         if (nums.length == 2) {
             return nums[0] > nums[1] ? 0 : 1;
         }
-        int i = 0, j = nums.length - 1, mid = -1;
+        int i = 0, j = nums.length - 1, mid;
         while (i <= j) {
-            mid = i + (j - i) >> 1;
+            mid = i + (j - i) / 2;
             if ((mid == 0 || nums[mid] > nums[mid - 1]) && (mid == nums.length - 1 || nums[mid] > nums[mid + 1])) {
                 return mid;
             } else if (mid > 0 && nums[mid] < nums[mid - 1]) {
@@ -184,7 +194,7 @@ public class SearchAndSort {
         }
         int i = 0, j = arr.length - 1, mid = -1;
         while (i <= j) {
-            mid = i + (j - i) >> 1;
+            mid = i + (j - i) / 2;
             if (arr[mid] == key) {
                 return mid;
             } else if (arr[mid] > key) {
@@ -194,5 +204,44 @@ public class SearchAndSort {
             }
         }
         return mid;
+    }
+
+
+    public int findDuplicate(int[] nums) {
+        if (nums == null || nums.length == 1) {
+            return -1;
+        }
+        int fast = nums[0], slow = nums[0];
+        do {
+            fast = nums[fast];
+            fast = nums[fast];
+            slow = nums[slow];
+        } while (fast != slow);
+        //重新表头
+        fast = nums[0];
+        while (fast != slow) {
+            fast = nums[fast];
+            slow = nums[slow];
+        }
+        return slow;
+    }
+
+    public List<Integer> countSmaller(int[] nums) {
+        if (nums == null) {
+            return null ;
+        }
+        List<Integer> ret = new ArrayList<>(nums.length);
+
+        for (int i = nums.length-1; i >=0; i--) {
+            int cnt = 0;
+
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] > nums[j]) {
+                    cnt++;
+                }
+            }
+            ret.add(cnt);
+        }
+        return ret;
     }
 }
