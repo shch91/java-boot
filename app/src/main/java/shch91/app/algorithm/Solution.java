@@ -8,11 +8,10 @@ class Solution {
 
     public static void main(String[] args) {
        Solution solution=new Solution();
-        int t=3;
-        while(t<8){
-            System.out.println(t);
-            t+=solution.lowBit(t);
-        }
+       // while(t<8){
+         //   System.out.println(t);
+          //  t+=solution.lowBit(t);
+       // }
     }
     public List<Integer> countSmaller(int[] nums) {
         List<Integer> resultList = new ArrayList<Integer>();
