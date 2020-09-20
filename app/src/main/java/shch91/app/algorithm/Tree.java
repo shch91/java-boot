@@ -70,6 +70,11 @@ class Tree {
         return result.toString();
     }
 
+    /**
+     * 该节点下的总结点数
+     * @param root
+     * @return
+     */
     private int total(TreeNode root) {
         if (root == null) {
             return 0;
@@ -213,6 +218,7 @@ class Tree {
             }
         }
         return result;
+
     }
 
     private class Faces {
@@ -228,6 +234,5 @@ class Tree {
             this.flag=flag;
         }
     }
-
 
 }
