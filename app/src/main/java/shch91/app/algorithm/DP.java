@@ -1,5 +1,7 @@
 package shch91.app.algorithm;
 
+import java.util.HashSet;
+
 public class DP {
 
 
@@ -26,27 +28,70 @@ public class DP {
             map[s.charAt(i) - 'a']++;
         }
         //提出小于k次
-        int i=left,j=right;
-        while (i <= right && map[s.charAt(i)-'a'] < k) {
+        int i = left, j = right;
+        while (i <= right && map[s.charAt(i) - 'a'] < k) {
             i++;
         }
-        while (j >= left && map[s.charAt(j)-'a'] < k) {
+        while (j >= left && map[s.charAt(j) - 'a'] < k) {
             j--;
         }
         //全部小于k
-        if (j - i +1< k) {
+        if (j - i + 1 < k) {
             return 0;
         }
-        for(int t=i;t<=j;t++){
-            if(map[s.charAt(t)-'a']<k){
-                return Math.max(getMax(s,i,t-1,k),getMax(s,t+1,j,k));
+        for (int t = i; t <= j; t++) {
+            if (map[s.charAt(t) - 'a'] < k) {
+                return Math.max(getMax(s, i, t - 1, k), getMax(s, t + 1, j, k));
             }
         }
-        return j-i+1;
+        return j - i + 1;
+    }
+
+    /**
+     * 数组中的最长连续序列
+     *
+     * @param nums
+     * @return
+     */
+    public int longestConsecutive(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        HashSet<Integer> set = new HashSet<Integer>();
+        int longset = 0;
+        for (int t : nums) {
+            set.add(t);
+        }
+        for (int num : nums) {
+            if (!set.contains(num - 1)) {
+                int cur = num, len = 1;
+                while (set.contains(cur + 1)) {
+                    len++;
+                    cur++;
+                }
+                longset = Math.max(longset, len);
+            }
+        }
+        return longset;
+    }
+
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int len=nums.length;
+        int[] res=new int[len+1];
+        res[0]=0;
+        res[1]=nums[0];
+        for(int i=2;i<=len;i++){
+            res[i]=Math.max(res[i-1],res[i-2]+nums[i-1]);
+        }
+        return res[len];
     }
 
     public static void main(String[] args) {
-        DP dp=new DP();
-        System.out.println(dp.longestSubstring("aaabb",3));
+        DP dp = new DP();
+        int[] arr = new int[]{2, 1, 1, 2};
+        System.out.println(dp.rob(arr));
     }
 }
