@@ -79,19 +79,45 @@ public class DP {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int len=nums.length;
-        int[] res=new int[len+1];
-        res[0]=0;
-        res[1]=nums[0];
-        for(int i=2;i<=len;i++){
-            res[i]=Math.max(res[i-1],res[i-2]+nums[i-1]);
+        int len = nums.length;
+        int[] res = new int[len + 1];
+        res[0] = 0;
+        res[1] = nums[0];
+        for (int i = 2; i <= len; i++) {
+            res[i] = Math.max(res[i - 1], res[i - 2] + nums[i - 1]);
         }
         return res[len];
+    }
+
+    public int numSquares(int n) {
+        while (n % 4 == 0) {
+            n /= 4;
+        }
+        if (n % 8 == 7) {
+            return 4;
+        }
+        for (int i = 1; i * i <= n; i++) {
+            if (i * i == n) {
+                return 1;
+            }
+        }
+        for (int i = 1; i * i <= n; i++) {
+            int b = (int) Math.sqrt(n - i * i);
+            if (b * b + i * i == n) {
+                return 2;
+            }
+        }
+        return 3;
+    }
+
+    public int lengthOfLIS(int[] nums) {
+
     }
 
     public static void main(String[] args) {
         DP dp = new DP();
         int[] arr = new int[]{2, 1, 1, 2};
-        System.out.println(dp.rob(arr));
+        //System.out.println(dp.rob(arr));
+        System.out.println((int) Math.sqrt(23));
     }
 }
