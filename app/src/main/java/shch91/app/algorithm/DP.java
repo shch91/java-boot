@@ -111,13 +111,93 @@ public class DP {
     }
 
     public int lengthOfLIS(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int max = 0;
+        int dp[] = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[j] + 1, dp[i]);
+                }
+            }
+            max = Math.max(dp[i], max);
+        }
+        return max;
+    }
 
+
+    public int coinChange(int[] coins, int amount) {
+        int dp[] = new int[amount + 1];
+        dp[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            dp[i] = Integer.MAX_VALUE;
+            for (int coin : coins) {
+                //剩余
+                int remain = i - coin;
+                if (remain >= 0 && dp[remain] != -1) {
+                    dp[i] = Math.min(dp[remain] + 1, dp[i]);
+                }
+            }
+            if (dp[i] == Integer.MAX_VALUE) {
+                dp[i] = -1;
+            }
+        }
+        return dp[amount];
+    }
+
+    private int[] row = new int[]{-1, 1, 0, 0};
+    private int[] col = new int[]{0, 0, -1, 1};
+
+    public int longestIncreasingPath(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return 0;
+        }
+        int[][] len = new int[matrix.length][matrix[0].length];
+        boolean[][] visit = new boolean[matrix.length][matrix[0].length];
+        int max = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                max = Math.max(max, find(matrix, len, visit, i, j));
+            }
+        }
+        return max;
+    }
+
+    /**
+     * 当前节点为末端节点的最大长度
+     * @param matrix
+     * @param len
+     * @param visit
+     * @param x
+     * @param y
+     * @return
+     */
+    private int find(int[][] matrix, int[][] len, boolean[][] visit, int x, int y) {
+        if (visit[x][y]) {
+            return len[x][y];
+        }
+        len[x][y]=1;
+        for (int i = 0; i < 4; i++) {
+            int rowX = x + row[i];
+            int colY = y + col[i];
+            if (rowX >= 0 && rowX < matrix.length &&
+                    colY >= 0 && colY < matrix[0].length &&
+                    matrix[rowX][colY] < matrix[x][y]) {
+                len[x][y] = Math.max(len[x][y], find(matrix,len,visit,rowX,colY)+1);
+            }
+        }
+        visit[x][y]=true;
+        return len[x][y];
     }
 
     public static void main(String[] args) {
         DP dp = new DP();
-        int[] arr = new int[]{2, 1, 1, 2};
+        int[] coins = new int[]{2};
+
         //System.out.println(dp.rob(arr));
-        System.out.println((int) Math.sqrt(23));
+        System.out.println(dp.coinChange(coins, 3));
     }
 }
