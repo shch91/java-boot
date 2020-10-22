@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ada9328-d19d-431f-968b-3f65936a4b56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/DP.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/DP.class" afterDir="false" />
-    </list>
+    <list default="true" id="1ada9328-d19d-431f-968b-3f65936a4b56" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +192,7 @@
       <workItem from="1601048351736" duration="88000" />
       <workItem from="1601088322561" duration="9236000" />
       <workItem from="1602689112183" duration="598000" />
-      <workItem from="1602777469039" duration="7039000" />
+      <workItem from="1602777469039" duration="7543000" />
     </task>
     <servers />
   </component>
