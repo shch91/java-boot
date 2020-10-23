@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ada9328-d19d-431f-968b-3f65936a4b56" name="Default Changelist" comment="" />
+    <list default="true" id="1ada9328-d19d-431f-968b-3f65936a4b56" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/C_M_N.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/C_M_N.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/C_M_N.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/C_M_N.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Graph.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,9 +72,22 @@
       <recent name="$PROJECT_DIR$/inter/src/main/resources/META-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Graph">
+  <component name="RunManager" selected="Application.C_M_N">
     <configuration name="Bit" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="shch91.app.algorithm.Bit" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shch91.app.algorithm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C_M_N" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="shch91.app.algorithm.C_M_N" />
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -107,19 +125,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchAndSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="shch91.app.algorithm.SearchAndSort" />
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="shch91.app.algorithm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="shch91.app.algorithm.Solution" />
       <module name="app" />
@@ -135,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.C_M_N" />
         <item itemvalue="Application.Graph" />
         <item itemvalue="Application.DP" />
         <item itemvalue="Application.Bit" />
         <item itemvalue="Application.Solution" />
-        <item itemvalue="Application.SearchAndSort" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +197,7 @@
       <workItem from="1601048351736" duration="88000" />
       <workItem from="1601088322561" duration="9236000" />
       <workItem from="1602689112183" duration="598000" />
-      <workItem from="1602777469039" duration="7543000" />
+      <workItem from="1602777469039" duration="9378000" />
     </task>
     <servers />
   </component>
@@ -216,22 +221,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="418" height="466" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1598848669790" />
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1603007682432">
+    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1603459743940">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1603007682432" />
-    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1603007682432">
+    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1603459743940" />
+    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1603459743939">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1603007682432" />
-    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1603007682431">
+    <state width="1398" height="238" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1603459743939" />
+    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1603459743938">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1603007682431" />
-    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1603007682432">
+    <state width="1398" height="238" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1603459743938" />
+    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1603459743939">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1603007682432" />
+    <state width="1398" height="238" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1603459743939" />
     <state width="1398" height="360" key="GridCell.Tab.1.bottom" timestamp="1603007306922">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
