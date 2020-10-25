@@ -168,6 +168,7 @@ public class DP {
 
     /**
      * 当前节点为末端节点的最大长度
+     *
      * @param matrix
      * @param len
      * @param visit
@@ -179,18 +180,33 @@ public class DP {
         if (visit[x][y]) {
             return len[x][y];
         }
-        len[x][y]=1;
+        len[x][y] = 1;
         for (int i = 0; i < 4; i++) {
             int rowX = x + row[i];
             int colY = y + col[i];
             if (rowX >= 0 && rowX < matrix.length &&
                     colY >= 0 && colY < matrix[0].length &&
                     matrix[rowX][colY] < matrix[x][y]) {
-                len[x][y] = Math.max(len[x][y], find(matrix,len,visit,rowX,colY)+1);
+                len[x][y] = Math.max(len[x][y], find(matrix, len, visit, rowX, colY) + 1);
             }
         }
-        visit[x][y]=true;
+        visit[x][y] = true;
         return len[x][y];
+    }
+
+    public int climbStairs(int n) {
+
+        if (n <= 2) {
+            return n;
+        }
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = 1;
+        dp[2] = 2;
+        for (int k = 3; k <= n; k++) {
+            dp[k] = dp[k - 1] + dp[k - 2];
+        }
+        return dp[n];
     }
 
     public static void main(String[] args) {
@@ -198,6 +214,6 @@ public class DP {
         int[] coins = new int[]{2};
 
         //System.out.println(dp.rob(arr));
-        System.out.println(dp.coinChange(coins, 3));
+        System.out.println(dp.climbStairs(1));
     }
 }

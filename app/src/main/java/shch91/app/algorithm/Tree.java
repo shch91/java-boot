@@ -1,8 +1,23 @@
 package shch91.app.algorithm;
 
+import lombok.val;
+
 import java.util.*;
 
 class Tree {
+
+    /**
+     * Definition for a binary tree node.
+     */
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
 
     /**
      * 左右子树查找，找到任何一个节点都直接返回
@@ -26,20 +41,6 @@ class Tree {
             return null;
         }
         return root;
-    }
-
-
-    /**
-     * Definition for a binary tree node.
-     */
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 
     // Encodes a tree to a single string.
@@ -72,6 +73,7 @@ class Tree {
 
     /**
      * 该节点下的总结点数
+     *
      * @param root
      * @return
      */
@@ -84,6 +86,12 @@ class Tree {
         return left + right + 1;
     }
 
+    /**
+     * 求二叉树的深度
+     *
+     * @param root
+     * @return
+     */
     private int deep(TreeNode root) {
         if (root == null) {
             return 0;
@@ -93,18 +101,6 @@ class Tree {
         return Math.max(left, right) + 1;
     }
 
-
-    public static void main(String[] args) {
-        Tree t = new Tree();
-        //TreeNode root = t.deserialize("[1,2,null,3,null,4,null,5]");
-        //System.out.println(t.serialize(root));
-        int [][] build=new int[][]{
-                {1,2,1},
-                {1,2,2},
-                {1,2,3}
-        };
-        t.getSkyline(build);
-    }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
@@ -157,62 +153,62 @@ class Tree {
     public List<List<Integer>> getSkyline(int[][] buildings) {
 
         int builds = buildings.length;
-        List<Faces> list=new ArrayList<Faces>(2*builds);
+        List<Faces> list = new ArrayList<Faces>(2 * builds);
         //先起始
-        for(int i=0;i<builds;i++){
-            list.add(new Faces(buildings[i][0],buildings[i][2],0));
-            list.add(new Faces(buildings[i][1],buildings[i][2],1));
+        for (int i = 0; i < builds; i++) {
+            list.add(new Faces(buildings[i][0], buildings[i][2], 0));
+            list.add(new Faces(buildings[i][1], buildings[i][2], 1));
         }
         //升序
-        Comparator<Faces>cmp=new Comparator<Faces>() {
+        Comparator<Faces> cmp = new Comparator<Faces>() {
             @Override
             public int compare(Faces o1, Faces o2) {
 
-                if(o1.x==o2.x){
+                if (o1.x == o2.x) {
                     //起始节点
-                   if(o1.flag==o2.flag) {
-                       return o1.flag==0? o2.h - o1.h : o1.h - o2.h;
-                   }else{
-                       return o1.flag-o2.flag;
-                   }
+                    if (o1.flag == o2.flag) {
+                        return o1.flag == 0 ? o2.h - o1.h : o1.h - o2.h;
+                    } else {
+                        return o1.flag - o2.flag;
+                    }
 
-                }else{
-                    return o1.x-o2.x;
+                } else {
+                    return o1.x - o2.x;
                 }
             }
         };
 
-        Collections.sort(list,cmp);
+        Collections.sort(list, cmp);
         //降序
-        Comparator<Integer>p=new Comparator<Integer>() {
+        Comparator<Integer> p = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return o2-o1;
+                return o2 - o1;
             }
         };
         PriorityQueue<Integer> high = new PriorityQueue<Integer>(p);
         high.add(0);
-        List<List<Integer>> result=new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
 
         int h;
-        for (Faces it:list){
+        for (Faces it : list) {
             //起始节点
-            if(it.flag==0){
+            if (it.flag == 0) {
                 //当前最高点
-                h=high.peek();
+                h = high.peek();
                 high.add(it.h);
-                if(it.h>h){
-                    result.add(Arrays.asList(it.x,it.h));
+                if (it.h > h) {
+                    result.add(Arrays.asList(it.x, it.h));
                 }
-            }else{
+            } else {
                 //当前最高点
-                h=high.peek();
+                h = high.peek();
 
                 //移除高度
                 high.remove(it.h);
                 //最大高度发生变化
-                if(h!=high.peek()){
-                    result.add(Arrays.asList(it.x,high.peek()));
+                if (h != high.peek()) {
+                    result.add(Arrays.asList(it.x, high.peek()));
                 }
 
             }
@@ -228,11 +224,75 @@ class Tree {
         private int h;
         //起始节点标记
         private int flag;
-        public Faces(int x,int h,int flag){
-            this.x=x;
-            this.h=h;
-            this.flag=flag;
+
+        public Faces(int x, int h, int flag) {
+            this.x = x;
+            this.h = h;
+            this.flag = flag;
         }
+    }
+
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+
+    /**
+     * @param root
+     * @param minVal 当前节点的区间最小值
+     * @param maxVal 当前节点区间最大值
+     * @return
+     */
+    public boolean isValidBST(TreeNode root, long minVal, long maxVal) {
+        if (root == null) {
+            return true;
+        }
+        if (root.val >= maxVal || root.val <= minVal) {
+            return false;
+        }
+        return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
+    }
+
+    /**
+     * 对称二叉树
+     *
+     * @param root
+     * @return
+     */
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return symmetric(root.left, root.right);
+    }
+
+    public boolean symmetric(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        } else if (left == null && right != null) {
+            return false;
+        } else if (left != null && right == null) {
+            return false;
+        }
+        if (left.val != right.val) {
+            return false;
+        }
+        boolean h = symmetric(left.left, right.right);
+        boolean k = symmetric(left.right, right.left);
+        return h && k;
+    }
+
+
+    public static void main(String[] args) {
+        Tree t = new Tree();
+        //TreeNode root = t.deserialize("[1,2,null,3,null,4,null,5]");
+        //System.out.println(t.serialize(root));
+        int[][] build = new int[][]{
+                {1, 2, 1},
+                {1, 2, 2},
+                {1, 2, 3}
+        };
+        t.getSkyline(build);
     }
 
 }
