@@ -8,18 +8,18 @@
     <groupId>com.ldy</groupId>
     <artifactId>shch91</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <modules>
 
-        <module>common</module>
+    <modules>
+        <module>com</module>
         <module>repo</module>
         <module>service</module>
         <module>app</module>
         <module>inter</module>
-
     </modules>
+
     <packaging>pom</packaging>
 
-    <name>shch91</name>
+    <name>maven</name>
     <description>Demo project for Spring Boot</description>
 
 
@@ -69,7 +69,6 @@
             <scope>true</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
@@ -152,7 +151,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
@@ -210,7 +208,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.12</version>
+            <version>8.0.17</version>
         </dependency>
 
         <dependency>
@@ -302,7 +300,7 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
@@ -310,7 +308,7 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
@@ -318,7 +316,7 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -340,21 +338,10 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
-            <version>2.6.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.jboss.netty</groupId>
-                    <artifactId>netty</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>2.6.7</version>
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -390,17 +377,20 @@
             </exclusions>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.10</version>
+            <version>1.4.11</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
+<<<<<<< HEAD
             <version>3.4.14</version>
+=======
+            <version>3.5.5</version>
+>>>>>>> dev
             <exclusions>
                 <exclusion>
                     <artifactId>log4j</artifactId>
@@ -417,17 +407,10 @@
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
-                    <artifactId>zookeeper</artifactId>
-                </exclusion>
-
-            </exclusions>
             <version>2.9.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -435,7 +418,6 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/javax.jms/javax.jms-api -->
         <dependency>
             <groupId>javax.jms</groupId>
             <artifactId>javax.jms-api</artifactId>
@@ -443,28 +425,13 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-pool -->
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-pool</artifactId>
-            <version>5.15.5</version>
-        </dependency>
-
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jms</artifactId>
-            <version>5.0.8.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
-            <version>5.15.5</version>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.12</version>
         </dependency>
 
     </dependencies>
-
-
 
 </project>

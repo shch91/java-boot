@@ -9,7 +9,6 @@ import org.apache.curator.framework.recipes.leader.LeaderSelectorListenerAdapter
 @Slf4j
 public class LeaderDispatch  {
 
-
     private boolean leader = false;
 
     public boolean isLeader() {

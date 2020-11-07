@@ -9,9 +9,9 @@ import shch91.repo.daoentity.Actor;
 public interface ActorMapper {
     Actor select(@Param("actorId") int actorId);
 
-   void update(Actor actor);
+   int update(Actor actor);
 
-   void insert(Actor actor);
+   int insert(Actor actor);
 
     int insertOrUpdate(Actor actor);
 }

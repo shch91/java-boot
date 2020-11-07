@@ -1,0 +1,8 @@
+META-INF/spring-configuration-metadata.json
+shch91/repo/dataconfig/EmployeesDataBaseConfig.class
+shch91/RepoApplication.class
+shch91/repo/mapper/employees/SalaryMapper.class
+shch91/repo/daoentity/Salary.class
+shch91/repo/daoentity/Actor.class
+shch91/repo/dataconfig/SakilaDataBaseConfig.class
+shch91/repo/mapper/sakila/ActorMapper.class

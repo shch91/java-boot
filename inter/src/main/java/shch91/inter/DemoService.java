@@ -16,13 +16,14 @@
  */
 package shch91.inter;
 
+import shch91.enums.Type;
 import shch91.request.User;
 
 import java.util.Set;
 
 public interface DemoService {
 
-    User sayHello(String name);
+    User sayHello(Type type);
 
     Set<Integer> getSetInteger();
 

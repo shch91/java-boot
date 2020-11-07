@@ -11,18 +11,19 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
-
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
-@Configuration
-@EnableKafka
+/**
+ * @author shch
+ */
+
+//@Configuration
+//@EnableKafka
 public class KafkaConfig {
 
-    /* --------------producer configuration-----------------**/
-    @Bean
+
+   // @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
@@ -35,13 +36,12 @@ public class KafkaConfig {
         return props;
     }
 
-    @Bean
+    //@Bean
     public ProducerFactory<String, String> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
-    /* --------------consumer configuration-----------------**/
-    @Bean
+    //@Bean
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
@@ -54,7 +54,7 @@ public class KafkaConfig {
         return props;
     }
 
-    @Bean
+    //@Bean
     ConcurrentKafkaListenerContainerFactory<String, String>
     kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory =
@@ -63,35 +63,32 @@ public class KafkaConfig {
         return factory;
     }
 
-    @Bean
+    //@Bean
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
 
-    //实际执行消息消费的类，用于处理消息，做一些业务逻辑
-    @Bean
+    //@Bean
     public MyMessageListener myMessageListener() {
         return new MyMessageListener();
     }
 
-    //消费者容器配置信息
-    @Bean
+
+   //@Bean
     public ContainerProperties containerProperties() {
-        Pattern topicPattern = Pattern.compile("kafka"); //匹配满足正则的topic
-        ContainerProperties containerProperties = new ContainerProperties(topicPattern);//订阅满足正则表达式的topic
-        containerProperties.setMessageListener(myMessageListener());//订阅的topic的消息用myMessageListener去处理
+
+        ContainerProperties containerProperties = new ContainerProperties("kafka");
+        containerProperties.setMessageListener(myMessageListener());
         return containerProperties;
     }
 
-    @Bean
+    //@Bean
     public KafkaMessageListenerContainer<String, String> kafkaMessageListenerContainer() {
         return new KafkaMessageListenerContainer(consumerFactory(), containerProperties());
     }
 
-
-    /* --------------kafka template configuration-----------------**/
-    @Bean
+    //@Bean
     public KafkaTemplate<String, String> kafkaTemplate() {
         KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
         kafkaTemplate.setDefaultTopic("defaultTopic");

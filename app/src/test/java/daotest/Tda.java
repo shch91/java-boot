@@ -27,12 +27,11 @@ public class Tda {
     private SalaryMapper salaryMapper;
 
     @Test
-    public void dtuy(){
-        Actor ae= actorMapper.select(32);
-        String str=JSONUtils.toJSONString(ae);
-        log.info(str);
+    public void dtuy() {
 
-        List<Salary> lists=salaryMapper.getAll();
-        log.info(JSONUtils.toJSONString(lists));
+
+        Actor actor = actorMapper.select(1);
+
+        System.out.println(actor);
     }
 }
