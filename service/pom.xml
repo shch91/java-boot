@@ -20,12 +20,14 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
-            <groupId>contract</groupId>
+            <groupId>com.ldy</groupId>
             <artifactId>inter</artifactId>
             <version>0.0.7-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+
     </dependencies>
 
 </project>
