@@ -10,7 +10,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <module>common</module>
+        <module>com</module>
         <module>repo</module>
         <module>service</module>
         <module>app</module>
@@ -19,7 +19,7 @@
 
     <packaging>pom</packaging>
 
-    <name>java-maven</name>
+    <name>maven</name>
     <description>Demo project for Spring Boot</description>
 
 
