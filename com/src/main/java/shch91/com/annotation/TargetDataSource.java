@@ -1,4 +1,4 @@
-package shch91.common.annotation;
+package shch91.com.annotation;
 
 import java.lang.annotation.*;
 

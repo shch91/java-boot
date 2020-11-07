@@ -1,4 +1,4 @@
-package shch91.common.util.serialize;
+package shch91.com.util.serialize;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

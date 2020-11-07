@@ -1,4 +1,4 @@
-package shch91.common.util.httpClient;
+package shch91.com.util.httpClient;
 
 
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package shch91.common.util.serialize;
+package shch91.com.util.serialize;
 
 import org.nustaq.serialization.FSTConfiguration;
 import org.springframework.data.redis.serializer.RedisSerializer;

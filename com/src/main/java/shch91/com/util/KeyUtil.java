@@ -1,4 +1,4 @@
-package shch91.common.util;
+package shch91.com.util;
 
 import org.springframework.stereotype.Component;
 

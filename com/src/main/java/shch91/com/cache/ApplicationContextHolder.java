@@ -1,4 +1,4 @@
-package shch91.common.cache;
+package shch91.com.cache;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

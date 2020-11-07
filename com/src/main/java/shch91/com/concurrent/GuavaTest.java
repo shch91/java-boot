@@ -1,4 +1,4 @@
-package shch91.common.concurrent;
+package shch91.com.concurrent;
 
 import com.google.common.util.concurrent.*;
 

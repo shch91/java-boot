@@ -1,4 +1,4 @@
-package shch91.common.util.serialize;
+package shch91.com.util.serialize;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;

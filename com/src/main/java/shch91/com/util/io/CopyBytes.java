@@ -1,4 +1,4 @@
-package shch91.common.util.io;
+package shch91.com.util.io;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

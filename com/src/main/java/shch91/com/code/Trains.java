@@ -1,4 +1,4 @@
-package shch91.common.code;
+package shch91.com.code;
 
 import java.util.Scanner;
 

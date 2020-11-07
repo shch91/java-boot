@@ -1,4 +1,4 @@
-package shch91.common.util.readResource;
+package shch91.com.util.readResource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
