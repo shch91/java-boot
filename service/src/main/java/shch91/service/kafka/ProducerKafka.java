@@ -16,12 +16,11 @@ import java.util.Date;
  * @date 2019/03/24
  */
 @Slf4j
-@Component
+//@Component
 public class ProducerKafka {
 
     @Autowired
     KafkaTemplate<String,String> kafkaTemplate;
-
 
     @Scheduled(cron="0 */1 * * * ?")
     public void send() {

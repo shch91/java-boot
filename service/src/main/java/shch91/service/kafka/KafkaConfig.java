@@ -18,12 +18,12 @@ import java.util.Map;
  * @author shch
  */
 
-@Configuration
-@EnableKafka
+//@Configuration
+//@EnableKafka
 public class KafkaConfig {
 
 
-    @Bean
+   // @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
@@ -36,12 +36,12 @@ public class KafkaConfig {
         return props;
     }
 
-    @Bean
+    //@Bean
     public ProducerFactory<String, String> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
-    @Bean
+    //@Bean
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
@@ -54,7 +54,7 @@ public class KafkaConfig {
         return props;
     }
 
-    @Bean
+    //@Bean
     ConcurrentKafkaListenerContainerFactory<String, String>
     kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory =
@@ -63,19 +63,19 @@ public class KafkaConfig {
         return factory;
     }
 
-    @Bean
+    //@Bean
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
 
-    @Bean
+    //@Bean
     public MyMessageListener myMessageListener() {
         return new MyMessageListener();
     }
 
 
-    @Bean
+   //@Bean
     public ContainerProperties containerProperties() {
 
         ContainerProperties containerProperties = new ContainerProperties("kafka");
@@ -83,12 +83,12 @@ public class KafkaConfig {
         return containerProperties;
     }
 
-    @Bean
+    //@Bean
     public KafkaMessageListenerContainer<String, String> kafkaMessageListenerContainer() {
         return new KafkaMessageListenerContainer(consumerFactory(), containerProperties());
     }
 
-    @Bean
+    //@Bean
     public KafkaTemplate<String, String> kafkaTemplate() {
         KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
         kafkaTemplate.setDefaultTopic("defaultTopic");

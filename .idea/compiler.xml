@@ -10,8 +10,8 @@
         <module name="repo" />
         <module name="common" />
         <module name="app" />
-        <module name="inter" />
         <module name="service" />
+        <module name="inter" />
       </profile>
     </annotationProcessing>
   </component>

@@ -16,16 +16,27 @@
  */
 package shch91.service.impl;
 
-
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.stereotype.Component;
+import shch91.enums.Type;
+import shch91.inter.DemoService;
+import shch91.request.User;
 
+import java.util.Set;
 
 
 @Slf4j
 @Component("demoService")
-public class DemoServiceImpl {
+public class DemoServiceImpl  implements DemoService {
 
 
+    @Override
+    public User sayHello(Type type) {
+        return null;
+    }
+
+    @Override
+    public Set<Integer> getSetInteger() {
+        return null;
+    }
 }

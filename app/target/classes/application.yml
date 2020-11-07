@@ -12,22 +12,6 @@ spring:
   profiles:
     active: dev
 
-  mvc:
-    view:
-      prefix: /view/jsp/
-      suffix: .jsp
-
-
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
-    publisher-confirms: true
-    virtual-host: /
-
-
-
   jackson:
     date-format: yyyy-MM-dd HH.mm.ss
     time-zone: GMT+8

@@ -5,7 +5,6 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.listener.MessageListener;
 
 @Slf4j
-
 public class MyMessageListener implements MessageListener<String, String> {
 
     @Override
