@@ -1,4 +1,4 @@
-package shch91.enums;
+package shch91.inter.enums;
 
 public enum Type {
     ONE(1,"one"),

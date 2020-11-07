@@ -1,4 +1,4 @@
-package shch91.request;
+package shch91.inter.request;
 
 import lombok.Getter;
 import lombok.Setter;

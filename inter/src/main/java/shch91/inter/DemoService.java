@@ -16,8 +16,8 @@
  */
 package shch91.inter;
 
-import shch91.enums.Type;
-import shch91.request.User;
+import shch91.inter.enums.Type;
+import shch91.inter.request.User;
 
 import java.util.Set;
 
