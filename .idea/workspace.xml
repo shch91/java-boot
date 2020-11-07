@@ -1,72 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ada9328-d19d-431f-968b-3f65936a4b56" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/Bit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/C_M_N.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/CopyLink.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/CycleLink.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/DP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/Graph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/KthAndTraceBack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/LinkList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/LinkSort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/MaxProduce.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/MedianFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/MinStack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/OddEvenList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/ReverList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/SearchAndSort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/TopKFreq.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/Tree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/shch91/app/algorithm/WordSplit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/spring/spring-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/spring/spring-redis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Bit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/C_M_N.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/CopyLink$Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/CopyLink.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/CycleLink$ListNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/CycleLink.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/DP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Graph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/KthAndTraceBack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/LinkList$ListNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/LinkList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/LinkSort$ListNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/LinkSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/MaxProduce.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/MedianFinder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/MinStack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/OddEvenList$ListNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/OddEvenList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/ReverList$ListNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/ReverList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/SearchAndSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/TopKFreq$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/TopKFreq.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Tree$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Tree$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Tree$Faces.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Tree$TreeNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/Tree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/shch91/app/algorithm/WordSplit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/spring/spring-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/spring/spring-redis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/shch91/service/impl/DemoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/shch91/service/impl/DemoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/shch91/service/kafka/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/shch91/service/kafka/KafkaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/shch91/service/kafka/MyMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/shch91/service/kafka/MyMessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/shch91/service/kafka/ProducerKafka.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/shch91/service/kafka/ProducerKafka.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/shch91/service/zk/LeaderDispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/shch91/service/zk/LeaderDispatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/shch91/service/impl/DemoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/shch91/service/impl/DemoServiceImpl.class" afterDir="false" />
-    </list>
+    <list default="true" id="1ada9328-d19d-431f-968b-3f65936a4b56" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +137,7 @@
       <workItem from="1601088322561" duration="9236000" />
       <workItem from="1602689112183" duration="598000" />
       <workItem from="1602777469039" duration="19417000" />
-      <workItem from="1604721863524" duration="747000" />
+      <workItem from="1604721863524" duration="988000" />
     </task>
     <servers />
   </component>
