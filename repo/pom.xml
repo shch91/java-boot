@@ -15,7 +15,7 @@
 
         <dependency>
             <groupId>com.ldy</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>com</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

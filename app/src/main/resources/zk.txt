@@ -1,0 +1,7 @@
+启动zk
+
+cd /Users/shch/zookeeper-3.6.2/bin
+
+./zkServer.sh --config /Users/shch/zookeeper-3.6.2/conf/dataDir/zk-1 start
+./zkServer.sh --config /Users/shch/zookeeper-3.6.2/conf/dataDir/zk-2 start
+./zkServer.sh --config /Users/shch/zookeeper-3.6.2/conf/dataDir/zk-3 start
