@@ -7,7 +7,7 @@
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
     <!-- provider's application name, used for tracing dependency relationship -->
-    <dubbo:application name="java-boot"/>
+    <dubbo:application name="java-maven"/>
 
     <dubbo:registry address="zookeeper://localhost:2181" />
 

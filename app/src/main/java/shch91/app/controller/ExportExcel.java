@@ -21,42 +21,6 @@ import java.util.List;
 @RequestMapping("/export")
 public class ExportExcel {
 
-    @Resource
-     SalaryMapper salaryMapper;
-    /**
-     * 导出报表
-     * @return
-     */
-    @RequestMapping(value = "/salary")
-    @ResponseBody
-    public void export(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        //获取数据
-        List<Salary> list = salaryMapper.getAll();
-
-        //excel标题
-        String[] title = {"编号","工资","起始日期","终止日期"};
-
-        //excel文件名
-        String fileName = "员工信息表"+System.currentTimeMillis()+".xls";
-
-        //sheet名
-        String sheetName = "工资信息表";
-
-        //创建HSSFWorkbook
-        HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook(sheetName, title, list, null);
-
-        //响应到客户端
-        try {
-            this.setResponseHeader(response, fileName);
-            OutputStream os = response.getOutputStream();
-            wb.write(os);
-            os.flush();
-            os.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
     public void setResponseHeader(HttpServletResponse response, String fileName) {
         try {
