@@ -28,10 +28,7 @@ public class Tda {
 
     @Test
     public void dtuy() {
-
-
         Actor actor = actorMapper.select(1);
-
         System.out.println(actor);
     }
 }
