@@ -30,12 +30,12 @@ import java.util.Set;
 public class DemoServiceImpl  implements DemoService {
 
 
-    @Override
+
     public User sayHello(Type type) {
         return null;
     }
 
-    @Override
+
     public Set<Integer> getSetInteger() {
         return null;
     }
